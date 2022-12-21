@@ -6,15 +6,15 @@ namespace RoboApp;
 
 public partial class MainPage : ContentPage
 {
-    TcpBackgroundWorker connectionWorker = new TcpBackgroundWorker();
+   // TcpBackgroundWorker connectionWorker = new TcpBackgroundWorker();
     public MainPage()
 	{
 		InitializeComponent();
-        
-        connectionWorker.Start("192.168.0.1", 1000);
+
+        MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);
     }
-
-
+ 
+    
     private async void Button_Pressed(object sender, EventArgs e)
     {
 
@@ -179,7 +179,7 @@ public partial class MainPage : ContentPage
         message = E_Mode.ToString() + ", " + Dir[0].ToString() + ", " + Val[0].ToString() + ", " + Dir[1].ToString() + ", " + Val[1].ToString() + ", " + Dir[2].ToString() + ", " + Val[2].ToString() + ", " + Dir[3].ToString() + ", " + Val[3].ToString() + "";
 
 
-        await connectionWorker.SendMessage(message);
+        await MauiProgram.ConnectionWorker.SendMessage(message);
         LabelOutput.Text = message;
         
     }
@@ -194,7 +194,7 @@ public partial class MainPage : ContentPage
         var message = "0, 1, 0, 1, 0, 1, 0, 1, 0";
         message = E_Mode.ToString() + ", " + Dir[0].ToString() + ", " + Val[0].ToString() + ", " + Dir[1].ToString() + ", " + Val[1].ToString() + ", " + Dir[2].ToString() + ", " + Val[2].ToString() + ", " + Dir[3].ToString() + ", " + Val[3].ToString() + "";
 
-        await connectionWorker.SendMessage(message);
+        await MauiProgram.ConnectionWorker.SendMessage(message);
 
         LabelOutput.Text = "Stopping: " + i.ToString();
     }

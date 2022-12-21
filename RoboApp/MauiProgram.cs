@@ -1,10 +1,19 @@
-﻿namespace RoboApp;
+﻿
+
+using static RoboApp.TcpBackgroundApp;
+
+namespace RoboApp;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
+	public static TcpBackgroundWorker ConnectionWorker { get; private set; }
+    public static TcpBackgroundWorker ReceivingWorker { get; private set; }
+    public static TcpBackgroundWorker SendingWorker { get; private set; }
+    public static MauiApp CreateMauiApp()
 	{
-		var builder = MauiApp.CreateBuilder();
+
+		ConnectionWorker = new TcpBackgroundWorker();
+        var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>

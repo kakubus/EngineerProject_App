@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace RoboApp
 {
-    internal class TcpBackgroundApp
+    public class TcpBackgroundApp
     {
         public class TcpBackgroundWorker
         {
