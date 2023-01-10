@@ -27,11 +27,11 @@ public partial class MainPage : ContentPage
     {
         LabelOutput.Text = MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
         int i = 0;
-        int speed = 50; // do zmiany, na razie na stałe
+        int speed = 150; // do zmiany, na razie na stałe
         var button = (Button)sender;
         var buttonType = button.ClassId;
 
-        int E_Mode = 1;
+        int E_Mode = 0; // Normalnie 0! To bardzo ważne!
         int[] Dir = new int[4] { 1, 1, 1, 1 };
         int[] Val = new int[4] { 0, 0, 0, 0 };
 
@@ -209,7 +209,7 @@ public partial class MainPage : ContentPage
 
     private void EmergencyButton_Pressed(object sender, EventArgs e)
     {
-
+       // E_Mode = 1;
     }
 
     public async void RefreshLabels()
