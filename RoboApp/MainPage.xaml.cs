@@ -7,16 +7,19 @@ namespace RoboApp;
 
 public partial class MainPage : ContentPage
 {
-   // TcpBackgroundWorker connectionWorker = new TcpBackgroundWorker();
+    
+
     public MainPage()
 	{
 		InitializeComponent();
-        Task.Run(() => RefreshLabels());
-        MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);
         
+        
+        MauiProgram.ConnectionWorker = new TcpBackgroundWorker();
+        MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);
 
-       // MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2",60890);
-        LabelOutput.Text = MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
+        Task.Run(() => RefreshLabels());
+       
+        LabelOutput.Text = "Cnstr: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
     }
  
     
@@ -209,17 +212,15 @@ public partial class MainPage : ContentPage
 
     }
 
-    public async Task RefreshLabels()
+    public async void RefreshLabels()
     {
-        
-        do
+        string temp = "null";
+        while (true)
         {
-            // await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890);
-            await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890);
-            LabelOutput_Robo.Text = "Status: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString() + " " + MauiProgram.ConnectionWorker.RecvMessage.ToString();
-            
-            await Task.Delay(50);
-        } while (true);
+            temp = await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890);
+            LabelOutput_Robo.Text = "Out: "+ temp;
+            await Task.Delay(250);
+        }
        
     }
 

@@ -27,8 +27,8 @@
                     <Image Source="robo.png" Grid.Row="0"  Margin="5,5,5,5"   WidthRequest="250" />
                
                     
-                        <Label Text="Device is connected"  Grid.Row="1"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
-                        <Label Text="RoboOut:"  Grid.Row="2"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput_Robo"/>
+                        <Label Text="Connection Status.."  Grid.Row="1"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
+                        <Label Text="RoboOut:"  Grid.Row="2"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput_Robo" BackgroundColor="#DFD2D2"/>
 
 
 
