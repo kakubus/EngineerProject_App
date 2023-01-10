@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.Maui.Controls;
 using static RoboApp.TcpBackgroundApp;
 
 namespace RoboApp;
@@ -13,6 +14,8 @@ public static class MauiProgram
 	{
 
 		ConnectionWorker = new TcpBackgroundWorker();
+        
+        //	ReceivingWorker = new TcpBackgroundWorker();
         var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()

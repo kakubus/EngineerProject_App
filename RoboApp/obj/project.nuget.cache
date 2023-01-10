@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZjuP9svSTJYpGgOxbCxoLqdpQh4Aj70g0EIKIsZ5Y+oEck5W8CCn9fJ0+NBFgVki7xbHSetNIVkNRWph7Fw9DQ==",
+  "dgSpecHash": "DI/Q6HzCunnOJwqm2xn1N/IyKSE9N0Lv7VHJgi8eUk6BpMK67bBVa8RXAp2qFKLJ0GneTcv6p0g6ExLVVskNQg==",
   "success": true,
-  "projectFilePath": "M:\\EngineerProject_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj",
+  "projectFilePath": "D:\\C#\\EP_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kuba\\.nuget\\packages\\googlegson\\2.9.0.1\\googlegson.2.9.0.1.nupkg.sha512",
     "C:\\Users\\Kuba\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",

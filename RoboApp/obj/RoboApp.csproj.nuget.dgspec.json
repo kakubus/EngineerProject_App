@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "M:\\EngineerProject_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj": {}
+    "D:\\C#\\EP_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj": {}
   },
   "projects": {
-    "M:\\EngineerProject_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj": {
+    "D:\\C#\\EP_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "M:\\EngineerProject_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj",
+        "projectUniqueName": "D:\\C#\\EP_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj",
         "projectName": "RoboApp",
-        "projectPath": "M:\\EngineerProject_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj",
+        "projectPath": "D:\\C#\\EP_RoboApp\\EngineerProject_App\\RoboApp\\RoboApp.csproj",
         "packagesPath": "C:\\Users\\Kuba\\.nuget\\packages\\",
-        "outputPath": "M:\\EngineerProject_RoboApp\\EngineerProject_App\\RoboApp\\obj\\",
+        "outputPath": "D:\\C#\\EP_RoboApp\\EngineerProject_App\\RoboApp\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
