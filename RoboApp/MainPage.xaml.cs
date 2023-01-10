@@ -16,9 +16,9 @@ public partial class MainPage : ContentPage
         
         MauiProgram.ConnectionWorker = new TcpBackgroundWorker();
         MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);
-
-        Task.Run(() => RefreshLabels());
-       
+        Task.Run(() => MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890));
+          Task.Run(() => RefreshLabels());
+       // RefreshLabels();
         LabelOutput.Text = "Cnstr: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
     }
  
@@ -217,11 +217,13 @@ public partial class MainPage : ContentPage
         string temp = "null";
         while (true)
         {
-            temp = await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890);
+            // temp = await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890);
+            temp = MauiProgram.ConnectionWorker.RecvMessage.ToString();
+          //  LabelOutput.Text = "Status: " + MauiProgram.ConnectionWorker.ConnectionStatus;
             LabelOutput_Robo.Text = "Out: "+ temp;
-            await Task.Delay(250);
+            await Task.Delay(100);
         }
-       
+
     }
 
         /*

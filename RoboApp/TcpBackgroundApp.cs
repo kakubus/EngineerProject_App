@@ -4,6 +4,8 @@ using System.Net;
 using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 using System.Xml.Linq;
+using System.IO;
+using Windows.Media.Protection.PlayReady;
 
 
 namespace RoboApp
@@ -25,9 +27,14 @@ namespace RoboApp
             private int portFrom = 60890; // TEMP
             private string server1 = "192.168.0.2"; // TEMP 
 
+            private Socket clientSocket = null;
+            private NetworkStream stream = null;
+
             private readonly CancellationTokenSource _cancellationTokenSource;
             public string ConnectionStatus;
             public string RecvMessage;
+
+            private Mutex _recvMessageMutex = new Mutex();
 
             public TcpBackgroundWorker()
             {
@@ -48,6 +55,8 @@ namespace RoboApp
                 try
                 {
                     _listen.Start();
+                    clientSocket = _listen.AcceptSocket();
+                    stream = new NetworkStream(clientSocket);
                     await _client.ConnectAsync(sendingIP, portTo);
                     
 
@@ -115,36 +124,37 @@ namespace RoboApp
             
         }
 
-            public async Task<string> ListenMessage(string server, int port)
+            public async Task ListenMessage(string server, int port)
             {
                 
                 try
                 {
-                    
-                    Socket client = _listen.AcceptSocket();
-  
-                    NetworkStream stream = new NetworkStream(client);
-
-                    byte[] buffer = new byte[256];
-                    int bytesReceived = 0;
-                    while ((bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                    while (true)
                     {
+                        byte[] buffer = new byte[256];
+                        int bytesReceived = 0;
+                        while ((bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                        {
+                            //  bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length);
+                            string message = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
+                            string[] cutMsg = message.Split("\n");
+                            _recvMessageMutex.WaitOne();
+                            RecvMessage = cutMsg[0];
+                            _recvMessageMutex.ReleaseMutex();
+                            //  return RecvMessage;
+                        }
 
-                        string message = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
-                        string[] cutMsg = message.Split("\n");
-                        RecvMessage = cutMsg[0];
                     }
 
-
-                    client.Close();
-                    stream.Close();
                 }
                 catch (SocketException e)
                 {
+                    stream.Close();
+                    _recvMessageMutex.WaitOne();
                     RecvMessage = e.ToString();
+                    _recvMessageMutex.ReleaseMutex();
                 }
-
-                return RecvMessage;
+                _listen.Stop();
 
             }
 
@@ -153,6 +163,8 @@ namespace RoboApp
                 // Żądanie zatrzymania pętli wysyłającej/odbierającej dane
                 _cancellationTokenSource.Cancel();
                 _listen.Stop();
+                clientSocket.Close();
+                stream.Close();
                 // _client.Close();
             }
 
