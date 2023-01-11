@@ -19,21 +19,23 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="20*"/>
                         <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
                         <RowDefinition Height="80*"/>
                         <RowDefinition Height="80*"/>
                     </Grid.RowDefinitions>
 
                     
                     <Image Source="robo.png" Grid.Row="0"  Margin="5,5,5,5"   WidthRequest="250" />
-               
-                    
+        
                         <Label Text="Connection Status.."  Grid.Row="1"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
                         <Label Text="RoboOut:"  Grid.Row="2"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput_Robo" BackgroundColor="#DFD2D2"/>
-
-
-
+                  
+                        <!--<Label Text="Speed" Grid.Column="0"/>-->
+                        <Slider WidthRequest="300" Grid.Column="3" Minimum="25" Maximum="150" Value="50"  x:Name="SliderSpeed" IsVisible="True" IsEnabled="True" MinimumHeightRequest="40" />
+                    <!-- <Label Text="SliderSpeed.Value" Grid.Column="2"/>-->
+                   <!-- </Grid>-->
                     <!--Dolny wiersz-->
-                <Grid MinimumWidthRequest="200" Grid.Row="3" x:Name="SteeringGrid" BackgroundColor="#D7EB1A" >
+                <Grid MinimumWidthRequest="200" Grid.Row="4" x:Name="SteeringGrid" BackgroundColor="#D7EB1A" >
                     
                     <!-- Siatka przycisków sterowniczych -->
                     <Grid.ColumnDefinitions>

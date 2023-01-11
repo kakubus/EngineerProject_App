@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 using static RoboApp.TcpBackgroundApp;
 
 namespace RoboApp;

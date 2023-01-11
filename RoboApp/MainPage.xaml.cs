@@ -26,7 +26,7 @@ public partial class MainPage : ContentPage
     {
         LabelOutput.Text = MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
         int i = 0;
-        int speed = 50; // do zmiany, na razie na stałe
+        int speed = (int)SliderSpeed.Value; // do zmiany, na razie na stałe
         var button = (Button)sender;
         var buttonType = button.ClassId;
 
