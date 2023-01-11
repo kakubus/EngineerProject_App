@@ -27,7 +27,7 @@ public partial class MainPage : ContentPage
     {
         LabelOutput.Text = MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
         int i = 0;
-        int speed = 150; // do zmiany, na razie na stałe
+        int speed = 50; // do zmiany, na razie na stałe
         var button = (Button)sender;
         var buttonType = button.ClassId;
 
@@ -75,9 +75,9 @@ public partial class MainPage : ContentPage
                 Val[0] = speed;
                 Dir[1] = 1;
                 Val[1] = speed;
-                Dir[2] = -1;
+                Dir[2] = 1;
                 Val[2] = speed;
-                Dir[3] = 1;
+                Dir[3] = -1;
                 Val[3] = speed;
 
                 break;
@@ -88,9 +88,9 @@ public partial class MainPage : ContentPage
                 Val[0] = speed;
                 Dir[1] = -1;
                 Val[1] = speed;
-                Dir[2] = 1;
+                Dir[2] = -1;
                 Val[2] = speed;
-                Dir[3] = -1;
+                Dir[3] = 1;
                 Val[3] = speed;
 
                 break;
@@ -99,18 +99,6 @@ public partial class MainPage : ContentPage
             case "DU_L_Button":
                 i = 5;
 
-                Dir[0] = 1;
-                Val[0] = speed;
-                Dir[1] = 1;
-                Val[1] = 0;
-                Dir[2] = 1;
-                Val[2] = 0;
-                Dir[3] = 1;
-                Val[3] = speed;
-
-                break;
-            case "DU_R_Button":
-                i = 6;
 
                 Dir[0] = 1;
                 Val[0] = 0;
@@ -122,6 +110,20 @@ public partial class MainPage : ContentPage
                 Val[3] = 0;
 
                 break;
+
+            case "DU_R_Button":
+                i = 6;
+
+                Dir[0] = 1;
+                Val[0] = speed;
+                Dir[1] = 1;
+                Val[1] = 0;
+                Dir[2] = 1;
+                Val[2] = 0;
+                Dir[3] = 1;
+                Val[3] = speed;
+                break;
+
             case "DD_L_Button":
                 i = 7;
 
@@ -139,32 +141,19 @@ public partial class MainPage : ContentPage
                 i = 8;
 
                 Dir[0] = -1;
-                Val[0] = speed;
+                Val[0] = 0;
                 Dir[1] = -1;
-                Val[1] = 0;
+                Val[1] = speed;
                 Dir[2] = -1;
-                Val[2] = 0;
+                Val[2] = speed;
                 Dir[3] = -1;
-                Val[3] = speed;
+                Val[3] = 0;
 
                 break;
 
             //Rotate move L/R
             case "R_L_Button":
                 i = 9;
-
-                Dir[0] = 1;
-                Val[0] = speed;
-                Dir[1] = -1;
-                Val[1] = speed;
-                Dir[2] = 1;
-                Val[2] = speed;
-                Dir[3] = -1;
-                Val[3] = speed;
-
-                break;
-            case "R_R_Button":
-                i = 10;
 
                 Dir[0] = -1;
                 Val[0] = speed;
@@ -175,6 +164,19 @@ public partial class MainPage : ContentPage
                 Dir[3] = 1;
                 Val[3] = speed;
 
+                break;
+            case "R_R_Button":
+                i = 10;
+
+                Dir[0] = 1;
+                Val[0] = speed;
+                Dir[1] = -1;
+                Val[1] = speed;
+                Dir[2] = 1;
+                Val[2] = speed;
+                Dir[3] = -1;
+                Val[3] = speed;
+               
                 break;
 
             default:
