@@ -20,7 +20,7 @@ namespace RoboApp
             IPAddress listeningIP = IPAddress.Parse("192.168.0.2");
             IPAddress sendingIP = IPAddress.Parse("192.168.0.1");
 
-            public string RecvMessage; // Zmienna przechowujaca odebrane dane
+            public string RecvMessage; // Zmienna przechowujaca odebrane dane 
 
             private TcpListener _listen;
             private int portTo = 1000;  //TEMP
