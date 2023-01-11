@@ -90,7 +90,7 @@
                     <!--Diagonalnie dół prawo-->
 
                     <!--Scalony dolny wiersz | Emergency STOP -->
-                        <Button Margin="0, 5, 0, 0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Text="STOP" BorderWidth="3" BorderColor="#991A1A" BackgroundColor="#D04539" FontFamily="Oxygen" FontAttributes="Bold" TextColor="#FFFFFF" FontSize="32" IsEnabled="True"/>
+                        <Button Margin="0, 5, 0, 0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Text="STOP" BorderWidth="3" BorderColor="#991A1A" BackgroundColor="#D04539" FontFamily="Oxygen" FontAttributes="Bold" TextColor="#FFFFFF" FontSize="32" IsEnabled="True" Pressed="EmergencyButton_Pressed"/>
                 </Grid>
                 </Grid>
             </VerticalStackLayout>

@@ -15,11 +15,10 @@ public partial class MainPage : ContentPage
         
         
         MauiProgram.ConnectionWorker = new TcpBackgroundWorker();
-        MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);
-        Task.Run(() => MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890));
-          Task.Run(() => RefreshLabels());
-       // RefreshLabels();
-        LabelOutput.Text = "Cnstr: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
+        MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);    //Komunikacja z robotem
+        Task.Run(() => MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890)); //Nasluchuj w tle
+        Task.Run(() => RefreshLabels()); // Uruchom odwiezanie w tle
+        LabelOutput.Text = "Cnstr: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString(); // status polaczenia z momentu tworzenia tego obiektu
     }
  
     
@@ -209,36 +208,33 @@ public partial class MainPage : ContentPage
         LabelOutput.Text = "Stopping: " + i.ToString();
     }
 
-    private void EmergencyButton_Pressed(object sender, EventArgs e)
+    private async void EmergencyButton_Pressed(object sender, EventArgs e)
     {
-       // E_Mode = 1;
+        var message = "1, 1, 0, 1, 0, 1, 0, 1, 0\n";
+
+        await MauiProgram.ConnectionWorker.SendMessage(message);
+
+        LabelOutput.Text = "Emergency stop! Disconnecting";
+        MauiProgram.ConnectionWorker.Stop();
     }
 
-    public async void RefreshLabels()
+    public async void RefreshLabels()   // Funkcja odwiezajaca Label'ki
     {
         string temp = "null";
         while (true)
         {
-            // temp = await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890);
-            temp = MauiProgram.ConnectionWorker.RecvMessage.ToString();
-          //  LabelOutput.Text = "Status: " + MauiProgram.ConnectionWorker.ConnectionStatus;
-            LabelOutput_Robo.Text = "Out: "+ temp;
+            
+            temp = MauiProgram.ConnectionWorker.RecvMessage;
+            
+  
+                LabelOutput_Robo.Text = "Out: " + temp;
+ 
+           
             await Task.Delay(100);
         }
 
     }
 
-        /*
-    private void OnCounterClicked(object sender, EventArgs e)
-    {
-    count++;
 
-    if (count == 1)
-       CounterBtn.Text = $"Clicked {count} time";
-    else
-       CounterBtn.Text = $"Clicked {count} times";
-
-    SemanticScreenReader.Announce(CounterBtn.Text);
-    }*/
     }
 

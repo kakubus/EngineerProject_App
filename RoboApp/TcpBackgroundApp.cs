@@ -20,8 +20,8 @@ namespace RoboApp
             IPAddress listeningIP = IPAddress.Parse("192.168.0.2");
             IPAddress sendingIP = IPAddress.Parse("192.168.0.1");
 
+            public string RecvMessage; // Zmienna przechowujaca odebrane dane
 
-            private TcpClient _clientRecv;
             private TcpListener _listen;
             private int portTo = 1000;  //TEMP
             private int portFrom = 60890; // TEMP
@@ -32,8 +32,7 @@ namespace RoboApp
 
             private readonly CancellationTokenSource _cancellationTokenSource;
             public string ConnectionStatus;
-            public string RecvMessage;
-
+            
             private Mutex _recvMessageMutex = new Mutex();
 
             public TcpBackgroundWorker()
@@ -41,11 +40,8 @@ namespace RoboApp
                 ConnectionStatus = "Disconnected";
                 RecvMessage= "Null";
                 _client = new TcpClient();
-                _clientRecv = new TcpClient();
-                _cancellationTokenSource = new CancellationTokenSource();
                 _listen = new TcpListener(listeningIP, portFrom);
-                
-
+                _cancellationTokenSource = new CancellationTokenSource(); 
             }
 
             public async void Start(string server, int port)
@@ -64,39 +60,23 @@ namespace RoboApp
                 catch (System.Net.Sockets.SocketException e)
                 {
                     RecvMessage = "START(): " + e.ToString();
+                    this.Stop();
                 }
 
-                // Pętla wysyłająca dane do serwera co 5 sekund
+                // Petla sprawdzajaca polaczenie
                 while (!_cancellationTokenSource.IsCancellationRequested)
                 {
-                    // Wysyłanie danych
-                    var data = "";
-                    
                     if(_client.Connected == true)
                     {
                         ConnectionStatus = "Connected";
-                        
-                        // unused  await ListenMessage("127.0.0.1", portFrom);
-
-
-                        /*    var buffer = new byte[1024];
-                            var bytesReceived = await _client.GetStream().ReadAsync(buffer, 0, buffer.Length);
-                            var message = Encoding.UTF8.GetString(buffer, 0, bytesReceived);
-                            RecvMessage = message;*/
-                        // await _client.GetStream().WriteAsync(Encoding.UTF8.GetBytes(data), 0, data.Length);
                     }
                     else
                     {
                         ConnectionStatus = "Disconnected";
                     }
-                   
                     await Task.Delay(50);
 
                 }
-
-                // Zamykanie połączenia
-                //
-                _client.Close();
             }
 
             public async Task<string> SendMessage(string message)
@@ -116,7 +96,7 @@ namespace RoboApp
                     var responseData = new byte[1024];
                     var responseLength = 128; //await _client.GetStream().ReadAsync(responseData, 0, responseData.Length);
                     
-                    return Encoding.ASCII.GetString(responseData, 0, responseLength); // bylo UTF8
+                    return Encoding.ASCII.GetString(responseData, 0, responseLength);
             }else{
                 ConnectionStatus = "Disconnected";
                 return null;
@@ -124,28 +104,25 @@ namespace RoboApp
             
         }
 
-            public async Task ListenMessage(string server, int port)
+            public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
                 
                 try
                 {
                     while (true)
                     {
-                        byte[] buffer = new byte[256];
+                        byte[] buffer = new byte[192];
                         int bytesReceived = 0;
+                        
                         while ((bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                        {
-                            //  bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length);
+                        { 
                             string message = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
-                            string[] cutMsg = message.Split("\n");
+                            string[] cutMsg = message.Split("\r\n");
                             _recvMessageMutex.WaitOne();
                             RecvMessage = cutMsg[0];
                             _recvMessageMutex.ReleaseMutex();
-                            //  return RecvMessage;
                         }
-
                     }
-
                 }
                 catch (SocketException e)
                 {
@@ -154,7 +131,7 @@ namespace RoboApp
                     RecvMessage = e.ToString();
                     _recvMessageMutex.ReleaseMutex();
                 }
-                _listen.Stop();
+              //  _listen.Stop();
 
             }
 
@@ -165,7 +142,7 @@ namespace RoboApp
                 _listen.Stop();
                 clientSocket.Close();
                 stream.Close();
-                // _client.Close();
+                _client.Close();
             }
 
 
