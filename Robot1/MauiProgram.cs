@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+
 using static Robot1.TcpBackgroundApp;
 
 namespace Robot1;
