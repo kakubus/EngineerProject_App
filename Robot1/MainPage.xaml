@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Robot1.MainPage">
+
+    <ScrollView BackgroundColor="#EBEBEB" >
+        <VerticalStackLayout 
+            Spacing="5"
+            Padding="5, 5, 5, 5"
+            VerticalOptions="End">
+
+            <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="FillAndExpand">
+
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="80*"/>
+                        <RowDefinition Height="80*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Image Source="robo.png" Grid.Row="0"  Margin="5,5,5,5"   WidthRequest="250" />
+
+                    <Label Text="Connection Status.."  Grid.Row="1"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
+                    <Label Text="RoboOut:"  Grid.Row="2"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput_Robo" BackgroundColor="#DFD2D2"/>
+                    <Switch Grid.Row="3" IsToggled="false" OnColor="Yellow"  ClassId="Connect_Switch" Toggled="ConnectionSwitch_Toggled"/>
+
+                    <!--<Label Text="Speed" Grid.Column="0"/>-->
+                    <Slider WidthRequest="300" Grid.Column="4" Minimum="25" Maximum="150" Value="50"  x:Name="SliderSpeed" IsVisible="True" IsEnabled="True" MinimumHeightRequest="40" />
+                    <!-- <Label Text="SliderSpeed.Value" Grid.Column="2"/>-->
+                    <!-- </Grid>-->
+                    <!--Dolny wiersz-->
+                    <Grid MinimumWidthRequest="200" Grid.Row="5" x:Name="SteeringGrid" BackgroundColor="#D7EB1A" >
+
+                        <!-- Siatka przycisków sterowniczych -->
+                        <Grid.ColumnDefinitions>
+                            <!--3 kolumny-->
+                            <ColumnDefinition Width="120*" />
+                            <ColumnDefinition Width="120*" />
+                            <ColumnDefinition Width="120*" />
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <!--4 wiersze-->
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+
+                        </Grid.RowDefinitions>
+                        <!--Lewa kolumna-->
+                        <Button Grid.Column="0" Grid.Row="0"  ImageSource="du_l_arrow.png"   BorderWidth="0.5" BorderColor="#EBEBEB" ClassId="DU_L_Button" Pressed="Button_Pressed" Released="Button_Released"/>
+                        <!--Diagonalnie góra lewo-->
+                        <Button Grid.Column="0" Grid.Row="1"  ImageSource="left_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="L_Button" />
+                        <!--Lewo-->
+                        <Button Grid.Column="0" Grid.Row="2"  ImageSource="dd_l_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DD_L_Button"/>
+                        <!--Diagonalnie dół lewo-->
+
+
+                        <!--Środkowa kolumna-->
+                        <Button Grid.Column="1" Grid.Row="0" ImageSource="up_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="U_Button"/>
+
+                        <!--Środek grid-->
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <!-- Siatka przycisków sterowniczych obrot -->
+                            <Grid.ColumnDefinitions>
+                                <!--2 kolumny-->
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <!--1 wiersz-->
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+                            <Button Grid.Column="0"   ImageSource="r_l_arrow.png" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_L_Button"/>
+                            <Button Grid.Column="2"   ImageSource="r_r_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_R_Button"/>
+                        </Grid>
+
+                        <Button Grid.Column="1" Grid.Row="2"  ImageSource="down_arrow.png"   BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released"  ClassId="D_Button"/>
+
+                        <!--Prawa kolumna-->
+                        <Button Grid.Column="2" Grid.Row="0"  ImageSource="du_r_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DU_R_Button"/>
+                        <!--Diagonalnie góra prawo-->
+                        <Button Grid.Column="2" Grid.Row="1"  ImageSource="right_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_Button"/>
+                        <!--Prawo-->
+                        <Button Grid.Column="2" Grid.Row="2"  ImageSource="dd_r_arrow.png" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DD_R_Button"/>
+                        <!--Diagonalnie dół prawo-->
+
+                        <!--Scalony dolny wiersz | Emergency STOP -->
+                        <Button Margin="0, 5, 0, 0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Text="STOP" BorderWidth="3" BorderColor="#991A1A" BackgroundColor="#D04539" FontFamily="Oxygen" FontAttributes="Bold" TextColor="#FFFFFF" FontSize="32" IsEnabled="True" Pressed="EmergencyButton_Pressed"/>
+                    </Grid>
+                </Grid>
+            </VerticalStackLayout>
+
+
+
+
+
+            <!--<Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+            -->
+
+            <!--<Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+            -->
+
+        </VerticalStackLayout>
+
+
+    </ScrollView>
+
+
+
+</ContentPage>

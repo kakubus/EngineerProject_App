@@ -1,4 +1,0 @@
-﻿[*.cs]
-
-# IDE0005: Dyrektywa using jest niepotrzebna.
-dotnet_diagnostic.IDE0005.severity = warning
