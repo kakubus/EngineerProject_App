@@ -1,4 +1,15 @@
-﻿obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
+﻿obj\Debug\net7.0-android\resizetizer\r\drawable\dd_l_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\dd_r_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\down_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\du_l_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\du_r_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\left_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\right_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\robo.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\r_l_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\r_r_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\up_arrow.png
+obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\splash.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\splash.png
