@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Platform;
+using System.Threading;
 using static Robot1.TcpBackgroundApp;
 namespace Robot1;
 
@@ -23,6 +24,7 @@ public partial class MainPage : ContentPage
         }
         else
         {
+            
             MauiProgram.ConnectionWorker.Stop();
         }
     }
@@ -191,10 +193,10 @@ public partial class MainPage : ContentPage
 
 
 
-        message = E_Mode.ToString() + ", " + Dir[0].ToString() + ", " + Val[0].ToString() + ", " + Dir[1].ToString() + ", " + Val[1].ToString() + ", " + Dir[2].ToString() + ", " + Val[2].ToString() + ", " + Dir[3].ToString() + ", " + Val[3].ToString() + "\n";
+        message = E_Mode.ToString() + ", " + Dir[0].ToString() + ", " + Val[0].ToString() + ", " + Dir[1].ToString() + ", " + Val[1].ToString() + ", " + Dir[2].ToString() + ", " + Val[2].ToString() + ", " + Dir[3].ToString() + ", " + Val[3].ToString() ;
 
 
-        await MauiProgram.ConnectionWorker.SendMessage(message);
+        await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
         LabelOutput.Text = "Sending: " + message;
 
     }
@@ -207,21 +209,22 @@ public partial class MainPage : ContentPage
         int[] Val = new int[4] { 0, 0, 0, 0 };
 
         var message = "0, 1, 0, 1, 0, 1, 0, 1, 0\n";
-        message = E_Mode.ToString() + ", " + Dir[0].ToString() + ", " + Val[0].ToString() + ", " + Dir[1].ToString() + ", " + Val[1].ToString() + ", " + Dir[2].ToString() + ", " + Val[2].ToString() + ", " + Dir[3].ToString() + ", " + Val[3].ToString() + "\n";
+        message = E_Mode.ToString() + ", " + Dir[0].ToString() + ", " + Val[0].ToString() + ", " + Dir[1].ToString() + ", " + Val[1].ToString() + ", " + Dir[2].ToString() + ", " + Val[2].ToString() + ", " + Dir[3].ToString() + ", " + Val[3].ToString() ;
 
-        await MauiProgram.ConnectionWorker.SendMessage(message);
+        await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
 
         LabelOutput.Text = "Stopping: " + i.ToString();
     }
 
     private async void EmergencyButton_Pressed(object sender, EventArgs e)
     {
-        var message = "1, 1, 0, 1, 0, 1, 0, 1, 0\n";
+        var message = "1, 1, 0, 1, 0, 1, 0, 1, 0";
 
-        await MauiProgram.ConnectionWorker.SendMessage(message);
+        await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
 
         LabelOutput.Text = "Emergency stop! Disconnecting";
         MauiProgram.ConnectionWorker.Stop();
+        ConnectSwitch.IsToggled = false;
     }
 
     public async void RefreshLabels()   // Funkcja odwiezajaca Label'ki

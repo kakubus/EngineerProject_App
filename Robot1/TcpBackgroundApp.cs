@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 using System.Xml.Linq;
 using System.IO;
+using System;
 
 
 namespace Robot1
@@ -48,17 +49,21 @@ namespace Robot1
             {
 
                 // Łączenie się z serwerem
+                
                 try
-                {
+                    {
                     _listen.Start();
 
                     await _client.ConnectAsync(sendingIP, portTo);
-                }
-                catch (System.Net.Sockets.SocketException e)
-                {
-                    RecvMessage = "START(): " + e.ToString();
-                    this.Stop();
-                }
+                    }
+                    catch (System.Net.Sockets.SocketException e)
+                    {
+                        RecvMessage = "START(): " + e.ToString();
+                        this.Stop();
+                    }
+                   // await Task.Delay(1000);
+            
+                
 
                 // Petla sprawdzajaca polaczenie
                 /*     while (!_cancellationTokenSource.IsCancellationRequested)
@@ -88,8 +93,16 @@ namespace Robot1
 
 
                     Byte[] data = Encoding.ASCII.GetBytes(message);
+                    try
+                    {
+                        await _client.GetStream().WriteAsync(data, 0, data.Length); // dać try / catch
+                    }
+                    catch (System.IO.IOException e)
+                    {
 
-                    await _client.GetStream().WriteAsync(data, 0, data.Length); // dać try / catch
+                    }
+                    
+                    
 
 
                     var responseData = new byte[1024];
@@ -107,7 +120,7 @@ namespace Robot1
 
             public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
-
+                
                 try
                 {
                     clientSocket = _listen.AcceptSocket();
@@ -118,22 +131,36 @@ namespace Robot1
                         byte[] buffer = new byte[192];
                         int bytesReceived = 0;
 
-                        while ((bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                        try
                         {
-                            string message = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
-                            string[] cutMsg = message.Split("\r\n");
-                            _recvMessageMutex.WaitOne();
-                            RecvMessage = cutMsg[0];
-                            _recvMessageMutex.ReleaseMutex();
+                            while (((bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0))
+                            {
+                                string message = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
+                                string[] cutMsg = message.Split("\r\n");
+                                _recvMessageMutex.WaitOne();
+                                RecvMessage = cutMsg[0];
+                                _recvMessageMutex.ReleaseMutex();
+                            }
                         }
+                        catch (System.IO.IOException e)
+                        {
+                            clientSocket.Close();
+                            stream.Close();
+                            _listen.Stop();
+                            return;
+                        }
+                        await Task.Delay(50);
+                        
                     }
                 }
                 catch (SocketException e)
                 {
+                    clientSocket.Close();
                     stream.Close();
                     _recvMessageMutex.WaitOne();
                     RecvMessage = e.ToString();
                     _recvMessageMutex.ReleaseMutex();
+                    _listen.Stop();
                 }
                 //  _listen.Stop();
 
@@ -145,7 +172,11 @@ namespace Robot1
                 // Żądanie zatrzymania pętli wysyłającej/odbierającej dane
                 _cancellationTokenSource.Cancel();
                 _listen.Stop();
-                clientSocket.Close();
+                if (clientSocket != null)
+                {
+                    clientSocket.Close();
+                }
+                
                 //      stream.Close();
                 //      _client.Close();
             }
