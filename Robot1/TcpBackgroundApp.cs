@@ -15,6 +15,8 @@ namespace Robot1
     {
         public class TcpBackgroundWorker
         {
+            public event Action<string> OnDataArrived;
+
             private readonly TcpClient _client;
             //Nowe rozwiazanie
 
@@ -126,7 +128,7 @@ namespace Robot1
                     clientSocket = _listen.AcceptSocket();
                     stream = new NetworkStream(clientSocket);
 
-                    while (true)
+                    while (true || !_cancellationTokenSource.IsCancellationRequested)
                     {
                         byte[] buffer = new byte[192];
                         int bytesReceived = 0;
@@ -140,6 +142,7 @@ namespace Robot1
                                 _recvMessageMutex.WaitOne();
                                 RecvMessage = cutMsg[0];
                                 _recvMessageMutex.ReleaseMutex();
+                                OnDataArrived.Invoke(Message());
                             }
                         }
                         catch (System.IO.IOException e)
@@ -162,6 +165,7 @@ namespace Robot1
                     _recvMessageMutex.ReleaseMutex();
                     _listen.Stop();
                 }
+                OnDataArrived.Invoke(Message());
                 //  _listen.Stop();
 
             }
@@ -176,7 +180,9 @@ namespace Robot1
                 {
                     clientSocket.Close();
                 }
-                
+
+                OnDataArrived.Invoke(Message());
+
                 //      stream.Close();
                 //      _client.Close();
             }

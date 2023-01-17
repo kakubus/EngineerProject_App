@@ -15,7 +15,7 @@
 
             <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="FillAndExpand">
 
-                <Image Source="robo.png" Margin="5,5,5,5"   WidthRequest="200" HeightRequest="200" />
+                <Image Source="robo.png" Margin="5,5,5,5"   WidthRequest="200" HeightRequest="200"/>
                 <!--.Row="0" -->
 
                 
@@ -27,8 +27,8 @@
                         <ColumnDefinition Width="70*"></ColumnDefinition>
                         <ColumnDefinition Width="20*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Text="Connection Status.."  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
-                    <Switch Grid.Column="1" IsToggled="false" OnColor="Yellow"  ClassId="Connect_Switch" Toggled="ConnectionSwitch_Toggled" x:Name="ConnectSwitch"/>
+                    <Label Grid.Column="0" Text="Connect to ROBO-1"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
+                    <Switch Grid.Column="1" IsToggled="false" OnColor="Yellow" ThumbColor="#302e37" ClassId="Connect_Switch" Toggled="ConnectionSwitch_Toggled" x:Name="ConnectSwitch"/>
                 </Grid>
                     
                     <!-- Grid.Row="3" -->
@@ -37,7 +37,7 @@
                         <ColumnDefinition Width="70*"></ColumnDefinition>
                         <ColumnDefinition Width="20*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Slider Grid.Column="0"  Minimum="30" Maximum="150" Value="50"  x:Name="SliderSpeed" IsVisible="True" IsEnabled="True" MinimumHeightRequest="40" MaximumTrackColor="OrangeRed" MinimumTrackColor="Green" ThumbColor="Yellow" />
+                    <Slider Grid.Column="0"  Minimum="30" Maximum="150" Value="50"  x:Name="SliderSpeed" IsVisible="True" IsEnabled="True" MinimumHeightRequest="70" MaximumTrackColor="OrangeRed" MinimumTrackColor="Green" ThumbColor="Yellow" />
                     <Label Text="{Binding Source={x:Reference SliderSpeed}, Path=Value, StringFormat='Speed: {0:F0}'}" Grid.Column="1" FontFamily="Oxygen" FontSize="Small" TextColor="Black" Padding="1,1,1,1" x:Name="SliderSpeedLabel"/>
                 </Grid>
                     <!--<Label Text="Speed" Grid.Column="0"Grid.Column="4"/>-->
@@ -67,16 +67,16 @@
 
                         </Grid.RowDefinitions>
                         <!--Lewa kolumna-->
-                        <Button Grid.Column="0" Grid.Row="0"  ImageSource="du_l_arrow.png"   BorderWidth="0.5" BorderColor="#EBEBEB" ClassId="DU_L_Button" Pressed="Button_Pressed" Released="Button_Released"/>
+                    <Button Grid.Column="0" Grid.Row="0"  ImageSource="du_l_arrow.png" BackgroundColor="#302e37"  BorderWidth="0.5" BorderColor="#EBEBEB" ClassId="DU_L_Button" Pressed="Button_Pressed" Released="Button_Released"/>
                         <!--Diagonalnie góra lewo-->
-                        <Button Grid.Column="0" Grid.Row="1"  ImageSource="left_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="L_Button" />
+                    <Button Grid.Column="0" Grid.Row="1"  ImageSource="left_arrow.png" BackgroundColor="#302e37"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="L_Button" />
                         <!--Lewo-->
-                        <Button Grid.Column="0" Grid.Row="2"  ImageSource="dd_l_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DD_L_Button"/>
+                    <Button Grid.Column="0" Grid.Row="2"  ImageSource="dd_l_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DD_L_Button"/>
                         <!--Diagonalnie dół lewo-->
 
 
                         <!--Środkowa kolumna-->
-                        <Button Grid.Column="1" Grid.Row="0" ImageSource="up_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="U_Button"/>
+                    <Button Grid.Column="1" Grid.Row="0" ImageSource="up_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="U_Button"/>
 
                         <!--Środek grid-->
                         <Grid Grid.Column="1" Grid.Row="1">
@@ -90,18 +90,18 @@
                                 <!--1 wiersz-->
                                 <RowDefinition Height="100"/>
                             </Grid.RowDefinitions>
-                            <Button Grid.Column="0"   ImageSource="r_l_arrow.png" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_L_Button"/>
-                            <Button Grid.Column="2"   ImageSource="r_r_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_R_Button"/>
+                        <Button Grid.Column="0"   ImageSource="r_l_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_L_Button"/>
+                        <Button Grid.Column="2"   ImageSource="r_r_arrow.png" BackgroundColor="#302e37"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_R_Button"/>
                         </Grid>
 
-                        <Button Grid.Column="1" Grid.Row="2"  ImageSource="down_arrow.png"   BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released"  ClassId="D_Button"/>
+                    <Button Grid.Column="1" Grid.Row="2"  ImageSource="down_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released"  ClassId="D_Button"/>
 
                         <!--Prawa kolumna-->
-                        <Button Grid.Column="2" Grid.Row="0"  ImageSource="du_r_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DU_R_Button"/>
+                    <Button Grid.Column="2" Grid.Row="0"  ImageSource="du_r_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DU_R_Button"/>
                         <!--Diagonalnie góra prawo-->
-                        <Button Grid.Column="2" Grid.Row="1"  ImageSource="right_arrow.png"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_Button"/>
+                    <Button Grid.Column="2" Grid.Row="1"  ImageSource="right_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="R_Button"/>
                         <!--Prawo-->
-                        <Button Grid.Column="2" Grid.Row="2"  ImageSource="dd_r_arrow.png" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DD_R_Button"/>
+                    <Button Grid.Column="2" Grid.Row="2"  ImageSource="dd_r_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DD_R_Button"/>
                         <!--Diagonalnie dół prawo-->
 
                         <!--Scalony dolny wiersz | Emergency STOP -->

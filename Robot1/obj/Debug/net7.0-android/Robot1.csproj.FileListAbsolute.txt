@@ -1994,6 +1994,14 @@ D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\lp\149\jl\f
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\lp\151\jl\files.cache
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\lp\153\jl\files.cache
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\lp\155\jl\files.cache
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\typemaps.armeabi-v7a.ll
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\environment.armeabi-v7a.ll
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\compressed_assemblies.armeabi-v7a.ll
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\typemaps.armeabi-v7a.o
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\environment.armeabi-v7a.o
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\compressed_assemblies.armeabi-v7a.o
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\jni_remap.armeabi-v7a.o
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\app_shared_libraries\armeabi-v7a\libxamarin-app.so
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\assets\mscorlib.dll
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\assets\System.Collections.Concurrent.dll
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\assets\System.Data.Common.dll
@@ -2007,11 +2015,3 @@ D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\ass
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\assets\System.Runtime.Extensions.dll
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\assets\System.Runtime.Serialization.Formatters.dll
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\assets\System.Xml.dll
-D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\typemaps.armeabi-v7a.ll
-D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\environment.armeabi-v7a.ll
-D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\compressed_assemblies.armeabi-v7a.ll
-D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\typemaps.armeabi-v7a.o
-D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\environment.armeabi-v7a.o
-D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\compressed_assemblies.armeabi-v7a.o
-D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\android\jni_remap.armeabi-v7a.o
-D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\app_shared_libraries\armeabi-v7a\libxamarin-app.so

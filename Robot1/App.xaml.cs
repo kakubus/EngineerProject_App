@@ -11,8 +11,8 @@ public partial class App : Application
 	public App()
 	{
 #if WINDOWS
-        const int WindowWidth = 500;
-        const int WindowHeight = 1024;
+        const int WindowWidth = 550;
+        const int WindowHeight = 1000;
 #endif
         InitializeComponent();
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using Microsoft.Maui.Platform;
+using System.Diagnostics;
 using System.Threading;
 using static Robot1.TcpBackgroundApp;
 namespace Robot1;
@@ -11,21 +12,24 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        
     }
 
     private async void ConnectionSwitch_Toggled(object sender, ToggledEventArgs e)
     {
+        MauiProgram.ConnectionWorker.OnDataArrived += RefreshLabels;
         if (e.Value == true)
         {
+            
             await MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);  //Komunikacja z robotem
             await Task.Delay(500);
             await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890); //Nasluchuj w tle
                                                                                     // Task.Run(() => RefreshLabels()); // Uruchom odwiezanie w tle 
-            LabelOutput.Text = "Cnstr: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString(); // status polaczenia z momentu tworzenia tego obiektu
+         //   LabelOutput.Text = "Cnstr: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString(); // status polaczenia z momentu tworzenia tego obiektu
         }
         else
         {
-            
+            MauiProgram.ConnectionWorker.OnDataArrived -= RefreshLabels;
             MauiProgram.ConnectionWorker.Stop();
         }
     }
@@ -228,17 +232,21 @@ public partial class MainPage : ContentPage
         ConnectSwitch.IsToggled = false;
     }
 
-    public async void RefreshLabels()   // Funkcja odwiezajaca Label'ki
+    private void RefreshLabels(string value)   // Funkcja odwiezajaca Label'ki
     {
-        while (true)
-        {
-            //LabelOutput_Robo.Text = "Out: " + temp;
-            //      await Device.InvokeOnMainThreadAsync(() =>
-            //      {
-            //          LabelOutput_Robo.Text = "Connection: " + MauiProgram.ConnectionWorker.ConnectionStatus + " Out: " + MauiProgram.ConnectionWorker.Message();
-            //     });
-            await Task.Delay(100);
-        }
+     //   LabelOutput_Robo.BindingContext = "RoboOut: "+ MauiProgram.ConnectionWorker.Message();
+        LabelOutput_Robo.Text = "RoboOut: " + value;
+      //  LabelOutput.Text = "Connection: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
+        
+        // while (true)
+        // {
+        //LabelOutput_Robo.Text = "Out: " + temp;
+        //      await Device.InvokeOnMainThreadAsync(() =>
+        //      {
+        //          LabelOutput_Robo.Text = "Connection: " + MauiProgram.ConnectionWorker.ConnectionStatus + " Out: " + MauiProgram.ConnectionWorker.Message();
+        //     });
+        //     await Task.Delay(100);
+        // }
 
     }
 

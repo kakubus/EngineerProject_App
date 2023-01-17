@@ -7,6 +7,7 @@ namespace Robot1;
 public static class MauiProgram
 {
 	public static TcpBackgroundWorker ConnectionWorker { get; private set; } = new TcpBackgroundWorker();
+    
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
