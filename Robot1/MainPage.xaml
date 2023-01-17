@@ -15,7 +15,7 @@
 
             <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="FillAndExpand">
 
-                <Image Source="robo.png" Margin="5,5,5,5"   WidthRequest="250" HeightRequest="250" />
+                <Image Source="robo.png" Margin="5,5,5,5"   WidthRequest="200" HeightRequest="200" />
                 <!--.Row="0" -->
 
                 

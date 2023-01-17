@@ -18,6 +18,7 @@ public partial class MainPage : ContentPage
         if (e.Value == true)
         {
             await MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);  //Komunikacja z robotem
+            await Task.Delay(500);
             await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890); //Nasluchuj w tle
                                                                                     // Task.Run(() => RefreshLabels()); // Uruchom odwiezanie w tle 
             LabelOutput.Text = "Cnstr: " + MauiProgram.ConnectionWorker.ConnectionStatus.ToString(); // status polaczenia z momentu tworzenia tego obiektu

@@ -120,9 +120,9 @@ namespace Robot1
 
             public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
-                
-                try
-                {
+
+                try { 
+            
                     clientSocket = _listen.AcceptSocket();
                     stream = new NetworkStream(clientSocket);
 
