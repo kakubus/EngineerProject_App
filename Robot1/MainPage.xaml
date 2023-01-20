@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Robot1"
              x:Class="Robot1.MainPage">
 
 
@@ -20,14 +21,14 @@
 
                 
                     <!-- Grid.Row="1"  -->
-                    <Label Text="RoboOut:"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput_Robo" BackgroundColor="#DFD2D2"/>
+                    <Label Text="{Binding RecvMessage}" FontFamily="Oxygen" FontSize="Micro" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput_Robo" BackgroundColor="#DFD2D2"/>
                     <!-- Grid.Row="2" -->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70*"></ColumnDefinition>
                         <ColumnDefinition Width="20*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Text="Connect to ROBO-1"  FontFamily="Oxygen" FontSize="Small" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
+                    <Label Text="{Binding MauiProgram.ConnectionWorker.ConnectionStatus}" Grid.Column="0"   FontFamily="Oxygen" FontSize="Micro" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
                     <Switch Grid.Column="1" IsToggled="false" OnColor="Yellow" ThumbColor="#302e37" ClassId="Connect_Switch" Toggled="ConnectionSwitch_Toggled" x:Name="ConnectSwitch"/>
                 </Grid>
                     

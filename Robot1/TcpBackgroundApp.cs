@@ -7,14 +7,42 @@ using Microsoft.Maui.Controls;
 using System.Xml.Linq;
 using System.IO;
 using System;
-
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Robot1
 {
-    public class TcpBackgroundApp
+    public class TcpBackgroundApp 
     {
-        public class TcpBackgroundWorker
+
+        public class TcpBackgroundWorker : INotifyPropertyChanged
         {
+            public event PropertyChangedEventHandler PropertyChanged;
+            public string RecvMessage
+            {
+                get { return _recvMessage; }
+                set
+                {
+                    _recvMessage = value;
+                    OnPropertyChanged();
+                }
+            }
+
+            public string ConnectionStatus
+            {
+                get { return _connectionStatus; }
+                set
+                {
+                    _connectionStatus = value;
+                    OnPropertyChanged();
+                }
+            }
+
+            protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+
             public event Action<string> OnDataArrived;
 
             private readonly TcpClient _client;
@@ -23,28 +51,38 @@ namespace Robot1
             IPAddress listeningIP = IPAddress.Parse("192.168.0.2");
             IPAddress sendingIP = IPAddress.Parse("192.168.0.1");
 
-            public string RecvMessage; // Zmienna przechowujaca odebrane dane 
+            public string _recvMessage; // Zmienna przechowujaca odebrane dane 
+
 
             private TcpListener _listen;
             private int portTo = 1000;  //TEMP
             private int portFrom = 60890; // TEMP
-            private string server1 = "192.168.0.2"; // TEMP 
+        //    private string server1 = "192.168.0.2"; // TEMP 
 
             private Socket clientSocket = null;
             private NetworkStream stream = null;
 
             private readonly CancellationTokenSource _cancellationTokenSource;
-            public string ConnectionStatus;
+            private string _connectionStatus;
 
-            private Mutex _recvMessageMutex = new Mutex();
+            private Mutex _RecvMessageMutex = new Mutex();
 
             public TcpBackgroundWorker()
             {
-                ConnectionStatus = "Disconnected";
-                RecvMessage = "Null";
+                _connectionStatus = "Connection: Disconnected";
+                _recvMessage = "RoboOut: Please connect to ROBO-1..";
                 _client = new TcpClient();
                 _listen = new TcpListener(listeningIP, portFrom);
                 _cancellationTokenSource = new CancellationTokenSource();
+            }
+            ~TcpBackgroundWorker()
+            {
+                this.Stop();
+            }
+
+            public void RestartListen()
+            {
+               _listen.Start();
             }
 
             public async Task Start(string server, int port)
@@ -63,26 +101,7 @@ namespace Robot1
                         RecvMessage = "START(): " + e.ToString();
                         this.Stop();
                     }
-                   // await Task.Delay(1000);
-            
-                
 
-                // Petla sprawdzajaca polaczenie
-                /*     while (!_cancellationTokenSource.IsCancellationRequested)
-                     {
-                         if (_client.Connected == true)
-                         {
-                             ConnectionStatus = "Connected";
-
-                         }
-
-                         else
-                         {
-                             ConnectionStatus = "Disconnected";
-                         }
-                         await Task.Delay(50);
-
-                     }*/
             }
 
             public async Task<string> SendMessage(string message)
@@ -101,7 +120,7 @@ namespace Robot1
                     }
                     catch (System.IO.IOException e)
                     {
-
+                        RecvMessage = "SENDMESSAGE(): " + e.ToString();
                     }
                     
                     
@@ -114,7 +133,7 @@ namespace Robot1
                 }
                 else
                 {
-                    ConnectionStatus = "Disconnected";
+                    _connectionStatus = "Disconnected";
                     return null;
                 }
 
@@ -124,7 +143,7 @@ namespace Robot1
             {
 
                 try { 
-            
+                    
                     clientSocket = _listen.AcceptSocket();
                     stream = new NetworkStream(clientSocket);
 
@@ -139,10 +158,12 @@ namespace Robot1
                             {
                                 string message = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
                                 string[] cutMsg = message.Split("\r\n");
-                                _recvMessageMutex.WaitOne();
-                                RecvMessage = cutMsg[0];
-                                _recvMessageMutex.ReleaseMutex();
-                                OnDataArrived.Invoke(Message());
+                                _RecvMessageMutex.WaitOne();
+                                RecvMessage = "RoboOut: "+cutMsg[0];
+                                _RecvMessageMutex.ReleaseMutex();
+                                OnDataArrived?.Invoke(RecvMessage);
+
+
                             }
                         }
                         catch (System.IO.IOException e)
@@ -152,7 +173,7 @@ namespace Robot1
                             _listen.Stop();
                             return;
                         }
-                        await Task.Delay(50);
+                      //  await Task.Delay(50);
                         
                     }
                 }
@@ -160,12 +181,12 @@ namespace Robot1
                 {
                     clientSocket.Close();
                     stream.Close();
-                    _recvMessageMutex.WaitOne();
-                    RecvMessage = e.ToString();
-                    _recvMessageMutex.ReleaseMutex();
+                    _RecvMessageMutex.WaitOne();
+                    _recvMessage = e.ToString();
+                    _RecvMessageMutex.ReleaseMutex();
                     _listen.Stop();
                 }
-                OnDataArrived.Invoke(Message());
+               // OnDataArrived.Invoke(Message());
                 //  _listen.Stop();
 
             }
@@ -181,7 +202,7 @@ namespace Robot1
                     clientSocket.Close();
                 }
 
-                OnDataArrived.Invoke(Message());
+               // OnDataArrived.Invoke(Message());
 
                 //      stream.Close();
                 //      _client.Close();
@@ -190,9 +211,9 @@ namespace Robot1
             public string Message()
             {
                 string temp = "";
-                _recvMessageMutex.WaitOne();
-                temp = RecvMessage;
-                _recvMessageMutex.ReleaseMutex();
+                _RecvMessageMutex.WaitOne();
+                temp = this._recvMessage;
+                _RecvMessageMutex.ReleaseMutex();
                 return temp;
 
             }

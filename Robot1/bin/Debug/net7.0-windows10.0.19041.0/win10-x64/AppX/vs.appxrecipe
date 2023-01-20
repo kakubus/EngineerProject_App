@@ -29,13 +29,13 @@
     <AppXManifest Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-01-17T18:06:21.405</Modified>
+      <Modified>2023-01-20T11:49:21.923</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-01-17T18:06:20.869</Modified>
+      <Modified>2023-01-20T11:49:21.351</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Robot1.runtimeconfig.json">
       <PackagePath>Robot1.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Robot1.dll">
       <PackagePath>Robot1.dll</PackagePath>
-      <Modified>2023-01-17T18:06:19.224</Modified>
+      <Modified>2023-01-20T11:49:19.748</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Robot1.exe</PackagePath>
-      <Modified>2023-01-17T18:06:19.344</Modified>
+      <Modified>2023-01-20T11:49:19.781</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kuba\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.2\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -919,7 +919,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Robot1.deps.json">
       <PackagePath>Robot1.deps.json</PackagePath>
-      <Modified>2023-01-17T18:06:21.201</Modified>
+      <Modified>2023-01-20T11:49:21.697</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.52\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
