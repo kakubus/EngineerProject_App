@@ -1,4 +1,4 @@
-﻿using System.Net;
+﻿
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Platform;
 using System.ComponentModel;
@@ -17,30 +17,37 @@ public partial class MainPage : ContentPage
     {
         
         InitializeComponent();
+      //  MauiProgram.ConnectionWorker.OnDataArrived += ConnectionWorker_OnArrived;
         this.BindingContext = MauiProgram.ConnectionWorker;
-
+    //    LabelOutput_Robo.SetBinding(Label.TextProperty, MauiProgram.ConnectionWorker.RecvMessage);
     }
-    /*
-    public async void ChangeColors(bool connected)
+   
+    public async void ChangeConnectionColors(bool connected)
     {
         if (connected == true)
         {
             GridOfConnectionStatus.BackgroundColor = Microsoft.Maui.Graphics.Color.FromRgba(20, 149, 5, 100);
+            //LabelOutput.Text = "ROBO-1 status: Connected";
         }
         else if (connected == false)
         {
             GridOfConnectionStatus.BackgroundColor = Microsoft.Maui.Graphics.Color.FromRgba(109, 109, 109, 100);
         }
     }
-
-    */
+    
+  //  private void ConnectionWorker_OnArrived(string temp)
+ //   {
+ //       LabelOutput_Robo.Text = temp;
+  //  }
+    
     private async void ConnectionSwitch_Toggled(object sender, ToggledEventArgs e)
     {
+        ChangeConnectionColors(e.Value);
         if (e.Value == true)
         {
-         //   ChangeColors(true);
+            
            
-         //   await Task.Delay(50);
+           
             await MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);  //Komunikacja z robotem
             await Task.Delay(500);
             await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890); //Nasluchuj w tle
@@ -49,17 +56,17 @@ public partial class MainPage : ContentPage
         }
         else
         {
-         //   ChangeColors(false);
+         
             MauiProgram.ConnectionWorker.Stop();
             
-            LabelOutput.Text = "Connection: Disconnected";
+      //      LabelOutput.Text = "Connection: Disconnected";
         }
     }
 
 
     private async void Button_Pressed(object sender, EventArgs e)
     {
-        LabelOutput.Text = MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
+    //    LabelOutput.Text = MauiProgram.ConnectionWorker.ConnectionStatus.ToString();
         int i = 0;
         int speed = (int)SliderSpeed.Value; // do zmiany, na razie na stałe
         var button = (Button)sender;

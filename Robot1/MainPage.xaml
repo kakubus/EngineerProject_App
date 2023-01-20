@@ -16,12 +16,12 @@
 
             <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="FillAndExpand">
 
-                <Image Source="robo.png" Margin="5,5,5,5"   WidthRequest="200" HeightRequest="200"/>
+                <Image Source="robo.png" Margin="5,5,5,5"   WidthRequest="290" HeightRequest="290" HorizontalOptions="CenterAndExpand"/>
                 <!--.Row="0" -->
 
-                <VerticalStackLayout BackgroundColor="#302e37" Padding="5, 5, 5, 5" >
+                <VerticalStackLayout BackgroundColor="#302e37" Padding="0, 5, 0, 0" >
                         <!-- Grid.Row="1"  -->
-                    <Label Text="DUPA" WidthRequest="500" FontFamily="Oxygen" FontSize="Micro" TextColor="#DFD8F7" Margin="0,2,2,0" x:Name="LabelOutput_Robo"  MaximumHeightRequest="70" MinimumHeightRequest="70"  Padding="5,5,5,5" HorizontalOptions="CenterAndExpand"/>
+                    <Label ZIndex="4"  Text="{Binding RecvMessage}" WidthRequest="500" FontFamily="Oxygen" FontSize="12" TextColor="#DFD8F7" Margin="0,2,2,0" x:Name="LabelOutput_Robo"  MaximumHeightRequest="70" MinimumHeightRequest="70"  Padding="5,5,5,5" />
                         <!-- Grid.Row="2" -->
 
                     <Grid x:Name="GridOfConnectionStatus">
@@ -29,7 +29,7 @@
                             <ColumnDefinition Width="70*"></ColumnDefinition>
                             <ColumnDefinition Width="20*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Label Text="{Binding ConnectionStatus}" Grid.Column="0"   FontFamily="Oxygen" FontSize="Medium" TextColor="#DFD8F7" Margin="10,5,5,0" Padding="0,5,5,0" x:Name="LabelOutput"/>
+                        <Label Text="{Binding ConnectionStatus}" Grid.Column="0"   FontFamily="Oxygen" FontSize="18" TextColor="#DFD8F7" Margin="10,5,5,0" Padding="0,5,5,0" x:Name="LabelOutput"/>
                         <Switch Grid.Column="1" IsToggled="false" OnColor="#e8e814" ThumbColor="WhiteSmoke" ClassId="Connect_Switch" Toggled="ConnectionSwitch_Toggled" x:Name="ConnectSwitch"/>
                         
                     </Grid>

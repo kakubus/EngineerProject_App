@@ -16,6 +16,7 @@ namespace Robot1
     {
         public class TcpBackgroundWorker : INotifyPropertyChanged
         {
+
             public event PropertyChangedEventHandler PropertyChanged;
             public string RecvMessage
             {
@@ -50,7 +51,7 @@ namespace Robot1
             IPAddress listeningIP = IPAddress.Parse("192.168.0.2");
             IPAddress sendingIP = IPAddress.Parse("192.168.0.1");
 
-            public string _recvMessage; // Zmienna przechowujaca odebrane dane 
+            private string _recvMessage; // Zmienna przechowujaca odebrane dane 
 
 
             private TcpListener _listen;
@@ -69,32 +70,36 @@ namespace Robot1
             public TcpBackgroundWorker()
             {
                 _connectionStatus = "Connection: Disconnected";
-                RecvMessage = "To connect to the robot, connect to the Wifi network named \"ROBO-1\". After this action, you can connect to the Robot.";
                 _client = new TcpClient();
                 _listen = new TcpListener(listeningIP, portFrom);
                 _cancellationTokenSource = new CancellationTokenSource();
+                _recvMessage = "To connect to the robot, connect to the Wifi network named ROBO-1. After this action, you can connect to the Robot.";
+                
             }
 
             public void RestartListen()
             {
-               _listen.Start();
+                _listen.Start();
             }
 
             public async Task Start(string server, int port)
             {
 
                 // Łączenie się z serwerem
+                _listen.Start();
                 
                 try
                     {
-                        _listen.Start();
+                    ConnectionStatus = "ROBO-1 status: Connected";
+                  //  _listen.Start();
 
                         await _client.ConnectAsync(sendingIP, portTo);
-                        ConnectionStatus = "ROBO-1 status: Connected";
+                       //
                     }
                     catch (System.Net.Sockets.SocketException e)
                     {
                         RecvMessage = "START(): " + e.ToString();
+           
                         this.Stop();
                     }
 
@@ -106,7 +111,7 @@ namespace Robot1
 
                 if (_client.Connected == true)
                 {
-                    ConnectionStatus = "ROBO-1 status: Connected";
+                   // _connectionStatus = "ROBO-1 status: Connected";
 
 
                     Byte[] data = Encoding.ASCII.GetBytes(message);
@@ -116,7 +121,8 @@ namespace Robot1
                     }
                     catch (System.IO.IOException e)
                     {
-                        RecvMessage = "SENDMESSAGE(): " + e.ToString();
+                        RecvMessage = "SEND(): " + e.ToString();
+                        this.Stop();
                     }
                     
                     
@@ -138,15 +144,28 @@ namespace Robot1
             public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
 
-                try {
 
-                   
-                        clientSocket = _listen.AcceptSocket(); 
-             
-                    
-                    stream = new NetworkStream(clientSocket);
+                //_listen.Start();
+                //   RestartListen();
+                try
+                {
 
-                    while (true || !_cancellationTokenSource.IsCancellationRequested)
+                    clientSocket = _listen.AcceptSocket();
+                }
+                catch (SocketException e)
+                {
+                    clientSocket.Close();
+                    stream.Close();
+                    _RecvMessageMutex.WaitOne();
+                    _recvMessage = e.ToString();
+                    _RecvMessageMutex.ReleaseMutex();
+                    _listen.Stop();
+                    return;
+                }
+
+                stream = new NetworkStream(clientSocket);
+
+                while (true || !_cancellationTokenSource.IsCancellationRequested)
                     {
                         byte[] buffer = new byte[192];
                         int bytesReceived = 0;
@@ -158,11 +177,12 @@ namespace Robot1
                                 string message = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
                                 string[] cutMsg = message.Split("\r\n");
                                 _RecvMessageMutex.WaitOne();
-                                RecvMessage = "RoboOut: "+cutMsg[0];
-                               
-                                _RecvMessageMutex.ReleaseMutex();
 
-                                OnDataArrived?.Invoke(RecvMessage);
+                                RecvMessage = "RoboOut: "+cutMsg[0];
+                            
+                            _RecvMessageMutex.ReleaseMutex();
+                            OnPropertyChanged(nameof(RecvMessage));
+                          //  OnDataArrived?.Invoke(RecvMessage);
 
                             }
                         }
@@ -173,19 +193,11 @@ namespace Robot1
                             _listen.Stop();
                             return;
                         }
-                        await Task.Delay(50);
+                    //    await Task.Delay(50);
                         
                     }
-                }
-                catch (SocketException e)
-                {
-                    clientSocket.Close();
-                    stream.Close();
-                    _RecvMessageMutex.WaitOne();
-                    _recvMessage = e.ToString();
-                    _RecvMessageMutex.ReleaseMutex();
-                    _listen.Stop();
-                }
+                
+                
                // OnDataArrived.Invoke(Message());
                 //  _listen.Stop();
 
@@ -202,7 +214,7 @@ namespace Robot1
                     clientSocket.Close();
                 }
                 ConnectionStatus = "ROBO-1 status: Disconnected";
-
+                _client.Close();
                 // OnDataArrived.Invoke(Message());
 
                 //      stream.Close();
