@@ -14,7 +14,6 @@ namespace Robot1
 {
     public class TcpBackgroundApp 
     {
-
         public class TcpBackgroundWorker : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
@@ -70,14 +69,10 @@ namespace Robot1
             public TcpBackgroundWorker()
             {
                 _connectionStatus = "Connection: Disconnected";
-                _recvMessage = "RoboOut: Please connect to ROBO-1..";
+                RecvMessage = "To connect to the robot, connect to the Wifi network named \"ROBO-1\". After this action, you can connect to the Robot.";
                 _client = new TcpClient();
                 _listen = new TcpListener(listeningIP, portFrom);
                 _cancellationTokenSource = new CancellationTokenSource();
-            }
-            ~TcpBackgroundWorker()
-            {
-                this.Stop();
             }
 
             public void RestartListen()
@@ -92,9 +87,10 @@ namespace Robot1
                 
                 try
                     {
-                    _listen.Start();
+                        _listen.Start();
 
-                    await _client.ConnectAsync(sendingIP, portTo);
+                        await _client.ConnectAsync(sendingIP, portTo);
+                        ConnectionStatus = "ROBO-1 status: Connected";
                     }
                     catch (System.Net.Sockets.SocketException e)
                     {
@@ -110,7 +106,7 @@ namespace Robot1
 
                 if (_client.Connected == true)
                 {
-                    ConnectionStatus = "Connected";
+                    ConnectionStatus = "ROBO-1 status: Connected";
 
 
                     Byte[] data = Encoding.ASCII.GetBytes(message);
@@ -133,7 +129,7 @@ namespace Robot1
                 }
                 else
                 {
-                    _connectionStatus = "Disconnected";
+                    _connectionStatus = "ROBO-1 status: Disconnected";
                     return null;
                 }
 
@@ -142,9 +138,12 @@ namespace Robot1
             public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
 
-                try { 
+                try {
+
+                   
+                        clientSocket = _listen.AcceptSocket(); 
+             
                     
-                    clientSocket = _listen.AcceptSocket();
                     stream = new NetworkStream(clientSocket);
 
                     while (true || !_cancellationTokenSource.IsCancellationRequested)
@@ -160,9 +159,10 @@ namespace Robot1
                                 string[] cutMsg = message.Split("\r\n");
                                 _RecvMessageMutex.WaitOne();
                                 RecvMessage = "RoboOut: "+cutMsg[0];
+                               
                                 _RecvMessageMutex.ReleaseMutex();
-                                OnDataArrived?.Invoke(RecvMessage);
 
+                                OnDataArrived?.Invoke(RecvMessage);
 
                             }
                         }
@@ -173,7 +173,7 @@ namespace Robot1
                             _listen.Stop();
                             return;
                         }
-                      //  await Task.Delay(50);
+                        await Task.Delay(50);
                         
                     }
                 }
@@ -201,8 +201,9 @@ namespace Robot1
                 {
                     clientSocket.Close();
                 }
+                ConnectionStatus = "ROBO-1 status: Disconnected";
 
-               // OnDataArrived.Invoke(Message());
+                // OnDataArrived.Invoke(Message());
 
                 //      stream.Close();
                 //      _client.Close();

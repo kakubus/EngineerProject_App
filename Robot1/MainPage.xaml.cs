@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using static Robot1.TcpBackgroundApp;
+using Microsoft.Maui.Graphics;
+
 namespace Robot1;
 
 public partial class MainPage : ContentPage
@@ -13,23 +15,44 @@ public partial class MainPage : ContentPage
 
     public MainPage()
     {
+        
         InitializeComponent();
         this.BindingContext = MauiProgram.ConnectionWorker;
+
+    }
+    /*
+    public async void ChangeColors(bool connected)
+    {
+        if (connected == true)
+        {
+            GridOfConnectionStatus.BackgroundColor = Microsoft.Maui.Graphics.Color.FromRgba(20, 149, 5, 100);
+        }
+        else if (connected == false)
+        {
+            GridOfConnectionStatus.BackgroundColor = Microsoft.Maui.Graphics.Color.FromRgba(109, 109, 109, 100);
+        }
     }
 
-
+    */
     private async void ConnectionSwitch_Toggled(object sender, ToggledEventArgs e)
     {
         if (e.Value == true)
         {
+         //   ChangeColors(true);
+           
+         //   await Task.Delay(50);
             await MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);  //Komunikacja z robotem
             await Task.Delay(500);
             await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890); //Nasluchuj w tle
+            
                                                                                     //  MauiProgram.ConnectionWorker.RestartListen();
         }
         else
-        { 
+        {
+         //   ChangeColors(false);
             MauiProgram.ConnectionWorker.Stop();
+            
+            LabelOutput.Text = "Connection: Disconnected";
         }
     }
 

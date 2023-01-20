@@ -11,7 +11,7 @@
     <ScrollView BackgroundColor="#EBEBEB" >
         <VerticalStackLayout 
             Spacing="5"
-            Padding="5, 5, 5, 5"
+            
             VerticalOptions="End">
 
             <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="FillAndExpand">
@@ -19,37 +19,39 @@
                 <Image Source="robo.png" Margin="5,5,5,5"   WidthRequest="200" HeightRequest="200"/>
                 <!--.Row="0" -->
 
-                
-                    <!-- Grid.Row="1"  -->
-                    <Label Text="{Binding RecvMessage}" FontFamily="Oxygen" FontSize="Micro" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput_Robo" BackgroundColor="#DFD2D2"/>
-                    <!-- Grid.Row="2" -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70*"></ColumnDefinition>
-                        <ColumnDefinition Width="20*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="{Binding MauiProgram.ConnectionWorker.ConnectionStatus}" Grid.Column="0"   FontFamily="Oxygen" FontSize="Micro" TextColor="#43463C" Margin="0,5,5,0" x:Name="LabelOutput"/>
-                    <Switch Grid.Column="1" IsToggled="false" OnColor="Yellow" ThumbColor="#302e37" ClassId="Connect_Switch" Toggled="ConnectionSwitch_Toggled" x:Name="ConnectSwitch"/>
-                </Grid>
-                    
-                    <!-- Grid.Row="3" -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70*"></ColumnDefinition>
-                        <ColumnDefinition Width="20*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Slider Grid.Column="0"  Minimum="30" Maximum="150" Value="50"  x:Name="SliderSpeed" IsVisible="True" IsEnabled="True" MinimumHeightRequest="70" MaximumTrackColor="OrangeRed" MinimumTrackColor="Green" ThumbColor="Yellow" />
-                    <Label Text="{Binding Source={x:Reference SliderSpeed}, Path=Value, StringFormat='Speed: {0:F0}'}" Grid.Column="1" FontFamily="Oxygen" FontSize="Small" TextColor="Black" Padding="1,1,1,1" x:Name="SliderSpeedLabel"/>
-                </Grid>
+                <VerticalStackLayout BackgroundColor="#302e37" Padding="5, 5, 5, 5" >
+                        <!-- Grid.Row="1"  -->
+                    <Label Text="DUPA" WidthRequest="500" FontFamily="Oxygen" FontSize="Micro" TextColor="#DFD8F7" Margin="0,2,2,0" x:Name="LabelOutput_Robo"  MaximumHeightRequest="70" MinimumHeightRequest="70"  Padding="5,5,5,5" HorizontalOptions="CenterAndExpand"/>
+                        <!-- Grid.Row="2" -->
+
+                    <Grid x:Name="GridOfConnectionStatus">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding ConnectionStatus}" Grid.Column="0"   FontFamily="Oxygen" FontSize="Medium" TextColor="#DFD8F7" Margin="10,5,5,0" Padding="0,5,5,0" x:Name="LabelOutput"/>
+                        <Switch Grid.Column="1" IsToggled="false" OnColor="#e8e814" ThumbColor="WhiteSmoke" ClassId="Connect_Switch" Toggled="ConnectionSwitch_Toggled" x:Name="ConnectSwitch"/>
+                        
+                    </Grid>
+                        
+                        <!-- Grid.Row="3" -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Slider Grid.Column="0"  Minimum="30" Maximum="150" Value="50" Margin="5"  x:Name="SliderSpeed" IsVisible="True" IsEnabled="True" MinimumHeightRequest="70" MaximumTrackColor="Green" MinimumTrackColor="OrangeRed" ThumbColor="Yellow" />
+                        <Label Text="{Binding Source={x:Reference SliderSpeed}, Path=Value, StringFormat='Speed: {0:F0}'}" Grid.Column="1" FontFamily="Oxygen" FontSize="Small" TextColor="White" Padding="1,5,5,1" x:Name="SliderSpeedLabel"/>
+                    </Grid>
                     <!--<Label Text="Speed" Grid.Column="0"Grid.Column="4"/>-->
-                
+                </VerticalStackLayout>
    
                     <!-- <Label Text="SliderSpeed.Value" Grid.Column="2"/>-->
                     <!--</Grid>-->
 
 
                     <!--Dolny wiersz-->
-                <Grid MinimumWidthRequest="200" Padding="5, 5, 5, 5" Grid.Row="2" x:Name="SteeringGrid" BackgroundColor="#fbfcee" >
+                <Grid MinimumWidthRequest="200" Padding="5, 5, 5, 5" Grid.Row="2" x:Name="SteeringGrid" BackgroundColor="#fbfcee"  >
 
                         <!-- Siatka przycisków sterowniczych -->
                         <Grid.ColumnDefinitions>
