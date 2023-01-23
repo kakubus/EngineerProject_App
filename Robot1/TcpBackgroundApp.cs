@@ -155,7 +155,7 @@ namespace Robot1
                 listener = new(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
                 listener.Bind(ipEndPoint);
-                listener.Listen(500);
+                listener.Listen(50);
 
                 var handler = await listener.AcceptAsync();
 
@@ -169,30 +169,36 @@ namespace Robot1
 
                     
                     string message = response;
-                     
 
-                        RecvMessage = "RoboOut: " +  message;
 
-                        
-                        OnPropertyChanged(nameof(RecvMessage));
-                    
+                    string[] cutMsg = message.Split("\r\n");
+                    _RecvMessageMutex.WaitOne();
+
+                    RecvMessage = "RoboOut: " + cutMsg[0];
+
+                    _RecvMessageMutex.ReleaseMutex();
+
+
+
+                    OnPropertyChanged(nameof(RecvMessage));
+
                     var eom = "<|EOM|>";
                     if (response.IndexOf(eom) > -1 /* is end of message */)
                     {
 
+                        
 
-                       
-
-                        RecvMessage = "RoboOut: " + response.Replace(eom, "");
+                        //      RecvMessage = "RoboOut: " + response.Replace(eom, "");
 
 
-                        OnPropertyChanged(nameof(RecvMessage));
+                        //     OnPropertyChanged(nameof(RecvMessage));
 
                         break;
                     }
                     // Sample output:
                     //    Socket server received message: "Hi friends 👋!"
                     //    Socket server sent acknowledgment: "<|ACK|>"
+                    await Task.Delay(50);
                 }
 
                 /* -- tu odkomentowac
