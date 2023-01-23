@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\dotnet_bot.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\dotnet_bot@2x.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\dotnet_bot@3x.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\dd_l_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\dd_r_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\down_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\du_l_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\du_r_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\left_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\right_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\robo.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\r_l_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\r_r_arrow.png" />
+    <BundleResource Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\up_arrow.png" />
+    <BundleResource Include="obj\Release\net7.0-maccatalyst\resizetizer\f\OpenSans-Regular.ttf" />
+    <BundleResource Include="obj\Release\net7.0-maccatalyst\resizetizer\f\OpenSans-Semibold.ttf" />
+    <BundleResource Include="obj\Release\net7.0-maccatalyst\resizetizer\f\Oxygen-Bold.ttf" />
+  </ItemGroup>
+</Project>

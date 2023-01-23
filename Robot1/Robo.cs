@@ -3,11 +3,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoboApp
+
+
+namespace Robot1
 {
+    static class ID
+    {
+        public const int A = 0;
+        public const int B = 1;
+        public const int C = 2;
+        public const int D = 3;
+    }
     enum WheelID { A, B, C, D}; // A - LP, B - PP, C - LT, D - PT
     
     struct WheelMovement // Struct for sending
@@ -23,6 +33,15 @@ namespace RoboApp
         public int direction;
         public int velocity;
         public float rot_velocity;
+        Wheel(int id, long counter, int direction, int velocity, float rot_velocity)
+        {
+            this.id = id;
+            this.counter = counter;
+            this.direction = direction;
+            this.velocity = velocity;
+            this.rot_velocity = rot_velocity;
+        }
+        
     }
 
     internal class Robo
@@ -39,14 +58,22 @@ namespace RoboApp
         }
 
         public bool EMERGENCY_MODE;
-        public Wheel Wheel;
-        WheelID WheelID;
+        public Wheel[] Wheel = new Robot1.Wheel[4];
+        WheelID WheelID ;
         
 
         private Robo()
         {
             EMERGENCY_MODE = false;
+      //      Wheel[ID.A] = new Wheel(0, 0, 1, 0, 0.0);
+
+
           //  Wheel[] = new Wheel()[4];
+        }
+
+        public async Task parseInput(string inputMessage)
+        {
+            string[] parsedMsg = inputMessage.Split(", ");
         }
         
     }

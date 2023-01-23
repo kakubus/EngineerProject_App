@@ -193,7 +193,7 @@ namespace Robot1
                             _listen.Stop();
                             return;
                         }
-                    //    await Task.Delay(50);
+                        await Task.Delay(50);
                         
                     }
                 
