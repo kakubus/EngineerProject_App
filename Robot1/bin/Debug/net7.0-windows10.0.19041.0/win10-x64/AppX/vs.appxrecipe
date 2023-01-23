@@ -29,7 +29,7 @@
     <AppXManifest Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-01-23T22:10:16.872</Modified>
+      <Modified>2023-01-23T22:25:31.392</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Robot1.dll">
       <PackagePath>Robot1.dll</PackagePath>
-      <Modified>2023-01-23T22:09:47.865</Modified>
+      <Modified>2023-01-23T22:25:28.518</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Robot1.exe</PackagePath>
-      <Modified>2023-01-23T22:09:47.968</Modified>
+      <Modified>2023-01-23T22:25:28.618</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kuba\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.2\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -919,7 +919,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\Robot1.deps.json">
       <PackagePath>Robot1.deps.json</PackagePath>
-      <Modified>2023-01-23T22:10:16.627</Modified>
+      <Modified>2023-01-23T22:25:30.901</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.52\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
@@ -971,187 +971,187 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2023-01-23T20:06:00.558</Modified>
+      <Modified>2023-01-23T22:25:23.039</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.907</Modified>
+      <Modified>2023-01-23T22:25:26.042</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2023-01-23T20:06:05.013</Modified>
+      <Modified>2023-01-23T22:25:26.129</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2023-01-23T20:06:05.114</Modified>
+      <Modified>2023-01-23T22:25:26.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2023-01-23T20:06:05.236</Modified>
+      <Modified>2023-01-23T22:25:26.339</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2023-01-23T20:06:05.503</Modified>
+      <Modified>2023-01-23T22:25:26.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.459</Modified>
+      <Modified>2023-01-23T22:25:24.160</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.542</Modified>
+      <Modified>2023-01-23T22:25:24.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.802</Modified>
+      <Modified>2023-01-23T22:25:24.437</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.639</Modified>
+      <Modified>2023-01-23T22:25:24.298</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.717</Modified>
+      <Modified>2023-01-23T22:25:24.363</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2023-01-23T20:06:01.986</Modified>
+      <Modified>2023-01-23T22:25:23.819</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.080</Modified>
+      <Modified>2023-01-23T22:25:23.882</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.375</Modified>
+      <Modified>2023-01-23T22:25:24.084</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.170</Modified>
+      <Modified>2023-01-23T22:25:23.945</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.270</Modified>
+      <Modified>2023-01-23T22:25:24.009</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2023-01-23T20:06:00.723</Modified>
+      <Modified>2023-01-23T22:25:23.138</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2023-01-23T20:06:00.841</Modified>
+      <Modified>2023-01-23T22:25:23.206</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2023-01-23T20:06:00.960</Modified>
+      <Modified>2023-01-23T22:25:23.276</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2023-01-23T20:06:01.080</Modified>
+      <Modified>2023-01-23T22:25:23.346</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2023-01-23T20:06:01.224</Modified>
+      <Modified>2023-01-23T22:25:23.420</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2023-01-23T20:06:01.353</Modified>
+      <Modified>2023-01-23T22:25:23.488</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2023-01-23T20:06:01.528</Modified>
+      <Modified>2023-01-23T22:25:23.552</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2023-01-23T20:06:01.900</Modified>
+      <Modified>2023-01-23T22:25:23.755</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2023-01-23T20:06:01.643</Modified>
+      <Modified>2023-01-23T22:25:23.616</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2023-01-23T20:06:01.791</Modified>
+      <Modified>2023-01-23T22:25:23.680</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.912</Modified>
+      <Modified>2023-01-23T22:25:25.193</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.984</Modified>
+      <Modified>2023-01-23T22:25:25.264</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.060</Modified>
+      <Modified>2023-01-23T22:25:25.338</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.140</Modified>
+      <Modified>2023-01-23T22:25:25.417</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.259</Modified>
+      <Modified>2023-01-23T22:25:25.529</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.323</Modified>
+      <Modified>2023-01-23T22:25:24.845</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.495</Modified>
+      <Modified>2023-01-23T22:25:24.911</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.616</Modified>
+      <Modified>2023-01-23T22:25:24.979</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.741</Modified>
+      <Modified>2023-01-23T22:25:25.047</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.841</Modified>
+      <Modified>2023-01-23T22:25:25.124</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.873</Modified>
+      <Modified>2023-01-23T22:25:24.503</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2023-01-23T20:06:02.951</Modified>
+      <Modified>2023-01-23T22:25:24.568</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.029</Modified>
+      <Modified>2023-01-23T22:25:24.633</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.098</Modified>
+      <Modified>2023-01-23T22:25:24.701</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2023-01-23T20:06:03.208</Modified>
+      <Modified>2023-01-23T22:25:24.771</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.333</Modified>
+      <Modified>2023-01-23T22:25:25.601</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.411</Modified>
+      <Modified>2023-01-23T22:25:25.674</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.488</Modified>
+      <Modified>2023-01-23T22:25:25.750</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.600</Modified>
+      <Modified>2023-01-23T22:25:25.832</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2023-01-23T20:06:04.769</Modified>
+      <Modified>2023-01-23T22:25:25.964</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dd_l_arrow.scale-100.png">
       <PackagePath>dd_l_arrow.scale-100.png</PackagePath>
