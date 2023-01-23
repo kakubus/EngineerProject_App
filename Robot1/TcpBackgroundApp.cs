@@ -57,7 +57,9 @@ namespace Robot1
             private TcpListener _listen;
             private int portTo = 1000;  //TEMP
             private int portFrom = 60890; // TEMP
-        //    private string server1 = "192.168.0.2"; // TEMP 
+                                          //    private string server1 = "192.168.0.2"; // TEMP 
+            IPEndPoint ipEndPoint;
+            Socket listener;
 
             private Socket clientSocket = null;
             private NetworkStream stream = null;
@@ -71,7 +73,11 @@ namespace Robot1
             {
                 _connectionStatus = "Connection: Disconnected";
                 _client = new TcpClient();
-                _listen = new TcpListener(listeningIP, portFrom);
+                //    _listen = new TcpListener(listeningIP, portFrom);
+
+              
+                
+
                 _cancellationTokenSource = new CancellationTokenSource();
                 _recvMessage = "To connect to the robot, connect to the Wifi network named ROBO-1. After this action, you can connect to the Robot.";
                 
@@ -79,14 +85,16 @@ namespace Robot1
 
             public void RestartListen()
             {
-                _listen.Start();
+      //          _listen.Start();
             }
 
             public async Task Start(string server, int port)
             {
 
                 // Łączenie się z serwerem
-                _listen.Start();
+        //        _listen.Start();
+
+            
                 
                 try
                     {
@@ -143,14 +151,58 @@ namespace Robot1
 
             public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
+                ipEndPoint = new(listeningIP, portFrom);
+                listener = new(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+                listener.Bind(ipEndPoint);
+                listener.Listen(500);
+
+                var handler = await listener.AcceptAsync();
+
+                while (true || !_cancellationTokenSource.IsCancellationRequested)
+                {
+                    // Receive message.
+                    var buffer = new byte[192];
+                    var received = await handler.ReceiveAsync(buffer, SocketFlags.None);
+                    var response = Encoding.ASCII.GetString(buffer, 0, received);
 
 
+                    
+                    string message = response;
+                     
+
+                        RecvMessage = "RoboOut: " +  message;
+
+                        
+                        OnPropertyChanged(nameof(RecvMessage));
+                    
+                    var eom = "<|EOM|>";
+                    if (response.IndexOf(eom) > -1 /* is end of message */)
+                    {
+
+
+                       
+
+                        RecvMessage = "RoboOut: " + response.Replace(eom, "");
+
+
+                        OnPropertyChanged(nameof(RecvMessage));
+
+                        break;
+                    }
+                    // Sample output:
+                    //    Socket server received message: "Hi friends 👋!"
+                    //    Socket server sent acknowledgment: "<|ACK|>"
+                }
+
+                /* -- tu odkomentowac
                 //_listen.Start();
                 //   RestartListen();
                 try
                 {
 
-                    clientSocket = _listen.AcceptSocket();
+                   // clientSocket = _listen.AcceptSocket();
+                    clientSocket = await _listen.AcceptSocketAsync();
                 }
                 catch (SocketException e)
                 {
@@ -162,14 +214,19 @@ namespace Robot1
                     _listen.Stop();
                     return;
                 }
-
+                bool dataAv = false;
                 stream = new NetworkStream(clientSocket);
-
+                
+                await Task.Delay(200);
+                dataAv = stream.DataAvailable;
+                
                 while (true || !_cancellationTokenSource.IsCancellationRequested)
                     {
+
+                    
                         byte[] buffer = new byte[192];
                         int bytesReceived = 0;
-
+                    
                         try
                         {
                             while (((bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0))
@@ -200,6 +257,7 @@ namespace Robot1
                 
                // OnDataArrived.Invoke(Message());
                 //  _listen.Stop();
+                */
 
             }
 
