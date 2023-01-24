@@ -151,54 +151,82 @@ namespace Robot1
 
             public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
-                ipEndPoint = new(listeningIP, portFrom);
-                listener = new(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                
 
-                listener.Bind(ipEndPoint);
-                listener.Listen(50);
+                try
+                {
+                    ipEndPoint = new(listeningIP, portFrom);
+                    listener = new(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                    
+                    listener.Bind(ipEndPoint);
+                    listener.Listen(50);
+                    
 
+
+                }
+                catch(SocketException e)
+                {
+                    RecvMessage = e.ToString();
+                    OnPropertyChanged(nameof(RecvMessage));
+                }
+                
                 var handler = await listener.AcceptAsync();
+               
 
                 while (true || !_cancellationTokenSource.IsCancellationRequested)
                 {
                     // Receive message.
                     var buffer = new byte[192];
-                    var received = await handler.ReceiveAsync(buffer, SocketFlags.None);
-                    var response = Encoding.ASCII.GetString(buffer, 0, received);
+                    int received;
+                    string response;
+                    try
+                    {
+                        received = await handler.ReceiveAsync(buffer, SocketFlags.None);
+                        response = Encoding.ASCII.GetString(buffer, 0, received);
+
+                        string message = response;
+
+
+                        string[] cutMsg = message.Split("\r\n");
+                        _RecvMessageMutex.WaitOne();
+
+                        RecvMessage = "RoboOut: " + cutMsg[0];
+
+                        _RecvMessageMutex.ReleaseMutex();
+
+
+
+                        OnPropertyChanged(nameof(RecvMessage));
+
+                        var eom = "<|EOM|>";
+                        if (response.IndexOf(eom) > -1 /* is end of message */)
+                        {
+
+
+
+                            //      RecvMessage = "RoboOut: " + response.Replace(eom, "");
+
+
+                            //     OnPropertyChanged(nameof(RecvMessage));
+
+                            break;
+                        }
+                        // Sample output:
+                        //    Socket server received message: "Hi friends 👋!"
+                        //    Socket server sent acknowledgment: "<|ACK|>"
+                        await Task.Delay(50);
+                    }
+                    catch (System.NullReferenceException e)
+                    {
+                        RecvMessage += " " + e.ToString();
+                        OnPropertyChanged(nameof(RecvMessage));
+                 
+                    }
+                    
 
 
                     
-                    string message = response;
-
-
-                    string[] cutMsg = message.Split("\r\n");
-                    _RecvMessageMutex.WaitOne();
-
-                    RecvMessage = "RoboOut: " + cutMsg[0];
-
-                    _RecvMessageMutex.ReleaseMutex();
-
-
-
-                    OnPropertyChanged(nameof(RecvMessage));
-
-                    var eom = "<|EOM|>";
-                    if (response.IndexOf(eom) > -1 /* is end of message */)
-                    {
-
-                        
-
-                        //      RecvMessage = "RoboOut: " + response.Replace(eom, "");
-
-
-                        //     OnPropertyChanged(nameof(RecvMessage));
-
-                        break;
-                    }
-                    // Sample output:
-                    //    Socket server received message: "Hi friends 👋!"
-                    //    Socket server sent acknowledgment: "<|ACK|>"
-                    await Task.Delay(50);
+                    
                 }
 
                 /* -- tu odkomentowac
@@ -272,11 +300,17 @@ namespace Robot1
             {
                 // Żądanie zatrzymania pętli wysyłającej/odbierającej dane
                 _cancellationTokenSource.Cancel();
-                _listen.Stop();
-                if (clientSocket != null)
-                {
-                    clientSocket.Close();
+                  if(listener != null)
+                  {
+             
+                    listener.Close();
                 }
+                
+               // _listen.Stop();
+           //     if (clientSocket != null)
+          //      {
+           //         clientSocket.Close();
+          //      }
                 ConnectionStatus = "ROBO-1 status: Disconnected";
                 _client.Close();
                 // OnDataArrived.Invoke(Message());

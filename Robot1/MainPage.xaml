@@ -21,7 +21,7 @@
 
                 <VerticalStackLayout BackgroundColor="#302e37" Padding="0, 5, 0, 0" >
                         <!-- Grid.Row="1"  -->
-                    <Label ZIndex="4"  Text="{Binding RecvMessage}" WidthRequest="500" FontFamily="Oxygen" FontSize="12" TextColor="#DFD8F7" Margin="0,2,2,0" x:Name="LabelOutput_Robo"  MaximumHeightRequest="70" MinimumHeightRequest="70"  Padding="5,5,5,5" />
+                    <Label ZIndex="4"  Text="{Binding RecvMessage}" WidthRequest="500" FontFamily="Oxygen" FontSize="14" TextColor="#DFD8F7" Margin="0,2,2,0" x:Name="LabelOutput_Robo"  MaximumHeightRequest="70" MinimumHeightRequest="70"  Padding="5,5,5,5" />
                         <!-- Grid.Row="2" -->
 
                     <Grid x:Name="GridOfConnectionStatus">
