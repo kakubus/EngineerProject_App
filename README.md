@@ -9,10 +9,10 @@ Kierunek: Informatyka. Specjalność: Oprogramowanie systemowe</h5>
 
 
 <hr/>
-<p align="center"><a href="https://github.com/kakubus/EngineerProject_View/"> System sterowania robotem mobilnym </a>- <b>aplikacja sterująca</b> </p>
+<p align="center"><i> System sterowania robotem mobilnym </i>- <b>aplikacja sterująca</b> </p>
 <hr/>
 
-> Projekt realizowany w ramach zaliczenia zajęć: Platforma .NET. Aplikacja wieloplatformowa (.NET MAUI) umożliwiająca sterowanie robotem mobilnym typu Mecanum, wykonanego w ramach pracy inżynierskiej (2022)
+> Projekt realizowany w ramach zaliczenia zajęć: Platforma .NET. Aplikacja wieloplatformowa (.NET MAUI) umożliwiająca sterowanie robotem mobilnym typu Mecanum, wykonanego w ramach [pracy inżynierskiej](https://github.com/kakubus/EngineerProject_View/) (2022)
 ## Widoki aplikacji
 <p align="center">
 <img width="460" height="800" src="https://github.com/kakubus/EngineerProject_App/blob/main/Robot1/Resources/Images/disconnected_app.png?raw=true">
