@@ -727,143 +727,143 @@
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\Oxygen-Bold.ttf">
       <PackagePath>Oxygen-Bold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
-      <PackagePath>appicon.ico</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_round.ico">
+      <PackagePath>appicon_round.ico</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
-      <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLargeTile.scale-100.png">
+      <PackagePath>appicon_roundLargeTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
-      <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLargeTile.scale-125.png">
+      <PackagePath>appicon_roundLargeTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
-      <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLargeTile.scale-150.png">
+      <PackagePath>appicon_roundLargeTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
-      <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLargeTile.scale-200.png">
+      <PackagePath>appicon_roundLargeTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
-      <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLargeTile.scale-400.png">
+      <PackagePath>appicon_roundLargeTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
-      <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-lightunplated_targetsize-16.png">
+      <PackagePath>appicon_roundLogo.altform-lightunplated_targetsize-16.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
-      <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-lightunplated_targetsize-24.png">
+      <PackagePath>appicon_roundLogo.altform-lightunplated_targetsize-24.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
-      <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-lightunplated_targetsize-256.png">
+      <PackagePath>appicon_roundLogo.altform-lightunplated_targetsize-256.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
-      <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-lightunplated_targetsize-32.png">
+      <PackagePath>appicon_roundLogo.altform-lightunplated_targetsize-32.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
-      <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-lightunplated_targetsize-48.png">
+      <PackagePath>appicon_roundLogo.altform-lightunplated_targetsize-48.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
-      <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-unplated_targetsize-16.png">
+      <PackagePath>appicon_roundLogo.altform-unplated_targetsize-16.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
-      <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-unplated_targetsize-24.png">
+      <PackagePath>appicon_roundLogo.altform-unplated_targetsize-24.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
-      <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-unplated_targetsize-256.png">
+      <PackagePath>appicon_roundLogo.altform-unplated_targetsize-256.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
-      <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-unplated_targetsize-32.png">
+      <PackagePath>appicon_roundLogo.altform-unplated_targetsize-32.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
-      <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.altform-unplated_targetsize-48.png">
+      <PackagePath>appicon_roundLogo.altform-unplated_targetsize-48.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
-      <PackagePath>appiconLogo.scale-100.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.scale-100.png">
+      <PackagePath>appicon_roundLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
-      <PackagePath>appiconLogo.scale-125.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.scale-125.png">
+      <PackagePath>appicon_roundLogo.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
-      <PackagePath>appiconLogo.scale-150.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.scale-150.png">
+      <PackagePath>appicon_roundLogo.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
-      <PackagePath>appiconLogo.scale-200.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.scale-200.png">
+      <PackagePath>appicon_roundLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
-      <PackagePath>appiconLogo.scale-400.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.scale-400.png">
+      <PackagePath>appicon_roundLogo.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
-      <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.targetsize-16.png">
+      <PackagePath>appicon_roundLogo.targetsize-16.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
-      <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.targetsize-24.png">
+      <PackagePath>appicon_roundLogo.targetsize-24.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
-      <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.targetsize-256.png">
+      <PackagePath>appicon_roundLogo.targetsize-256.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
-      <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.targetsize-32.png">
+      <PackagePath>appicon_roundLogo.targetsize-32.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
-      <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundLogo.targetsize-48.png">
+      <PackagePath>appicon_roundLogo.targetsize-48.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
-      <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundMediumTile.scale-100.png">
+      <PackagePath>appicon_roundMediumTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
-      <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundMediumTile.scale-125.png">
+      <PackagePath>appicon_roundMediumTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
-      <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundMediumTile.scale-150.png">
+      <PackagePath>appicon_roundMediumTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
-      <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundMediumTile.scale-200.png">
+      <PackagePath>appicon_roundMediumTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
-      <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundMediumTile.scale-400.png">
+      <PackagePath>appicon_roundMediumTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
-      <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundSmallTile.scale-100.png">
+      <PackagePath>appicon_roundSmallTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
-      <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundSmallTile.scale-125.png">
+      <PackagePath>appicon_roundSmallTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
-      <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundSmallTile.scale-150.png">
+      <PackagePath>appicon_roundSmallTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
-      <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundSmallTile.scale-200.png">
+      <PackagePath>appicon_roundSmallTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
-      <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundSmallTile.scale-400.png">
+      <PackagePath>appicon_roundSmallTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
-      <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundStoreLogo.scale-100.png">
+      <PackagePath>appicon_roundStoreLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
-      <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundStoreLogo.scale-125.png">
+      <PackagePath>appicon_roundStoreLogo.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
-      <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundStoreLogo.scale-150.png">
+      <PackagePath>appicon_roundStoreLogo.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
-      <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundStoreLogo.scale-200.png">
+      <PackagePath>appicon_roundStoreLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
-      <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundStoreLogo.scale-400.png">
+      <PackagePath>appicon_roundStoreLogo.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
-      <PackagePath>appiconWideTile.scale-100.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundWideTile.scale-100.png">
+      <PackagePath>appicon_roundWideTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
-      <PackagePath>appiconWideTile.scale-125.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundWideTile.scale-125.png">
+      <PackagePath>appicon_roundWideTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
-      <PackagePath>appiconWideTile.scale-150.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundWideTile.scale-150.png">
+      <PackagePath>appicon_roundWideTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
-      <PackagePath>appiconWideTile.scale-200.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundWideTile.scale-200.png">
+      <PackagePath>appicon_roundWideTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
-      <PackagePath>appiconWideTile.scale-400.png</PackagePath>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon_roundWideTile.scale-400.png">
+      <PackagePath>appicon_roundWideTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dd_l_arrow.scale-100.png">
       <PackagePath>dd_l_arrow.scale-100.png</PackagePath>
@@ -906,6 +906,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\robo.scale-100.png">
       <PackagePath>robo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\robo1.scale-100.png">
+      <PackagePath>robo1.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\r_l_arrow.scale-100.png">
       <PackagePath>r_l_arrow.scale-100.png</PackagePath>

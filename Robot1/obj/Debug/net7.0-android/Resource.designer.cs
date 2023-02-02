@@ -8286,26 +8286,29 @@ namespace Robot1
 			// aapt resource value: 0x7F0700DA
 			public const int robo = 2131165402;
 			
+			// aapt resource value: 0x7F0700DB
+			public const int robo1 = 2131165403;
+			
 			// aapt resource value: 0x7F0700D7
 			public const int r_l_arrow = 2131165399;
 			
 			// aapt resource value: 0x7F0700D8
 			public const int r_r_arrow = 2131165400;
 			
-			// aapt resource value: 0x7F0700DB
-			public const int splash = 2131165403;
-			
 			// aapt resource value: 0x7F0700DC
-			public const int test_level_drawable = 2131165404;
+			public const int splash = 2131165404;
 			
 			// aapt resource value: 0x7F0700DD
-			public const int tooltip_frame_dark = 2131165405;
+			public const int test_level_drawable = 2131165405;
 			
 			// aapt resource value: 0x7F0700DE
-			public const int tooltip_frame_light = 2131165406;
+			public const int tooltip_frame_dark = 2131165406;
 			
 			// aapt resource value: 0x7F0700DF
-			public const int up_arrow = 2131165407;
+			public const int tooltip_frame_light = 2131165407;
+			
+			// aapt resource value: 0x7F0700E0
+			public const int up_arrow = 2131165408;
 			
 			static Drawable()
 			{
@@ -10536,16 +10539,16 @@ namespace Robot1
 		{
 			
 			// aapt resource value: 0x7F0D0000
-			public const int appicon = 2131558400;
+			public const int appicon_round = 2131558400;
 			
 			// aapt resource value: 0x7F0D0001
-			public const int appicon_background = 2131558401;
+			public const int appicon_round_background = 2131558401;
 			
 			// aapt resource value: 0x7F0D0002
-			public const int appicon_foreground = 2131558402;
+			public const int appicon_round_foreground = 2131558402;
 			
 			// aapt resource value: 0x7F0D0003
-			public const int appicon_round = 2131558403;
+			public const int appicon_round_round = 2131558403;
 			
 			static Mipmap()
 			{

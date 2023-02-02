@@ -10823,11 +10823,12 @@ public final class R {
     public static final int r_r_arrow=0x7f0700d8;
     public static final int right_arrow=0x7f0700d9;
     public static final int robo=0x7f0700da;
-    public static final int splash=0x7f0700db;
-    public static final int test_level_drawable=0x7f0700dc;
-    public static final int tooltip_frame_dark=0x7f0700dd;
-    public static final int tooltip_frame_light=0x7f0700de;
-    public static final int up_arrow=0x7f0700df;
+    public static final int robo1=0x7f0700db;
+    public static final int splash=0x7f0700dc;
+    public static final int test_level_drawable=0x7f0700dd;
+    public static final int tooltip_frame_dark=0x7f0700de;
+    public static final int tooltip_frame_light=0x7f0700df;
+    public static final int up_arrow=0x7f0700e0;
   }
   public static final class id {
     public static final int ALT=0x7f080000;
@@ -11559,10 +11560,10 @@ public final class R {
     public static final int toolbar=0x7f0b0077;
   }
   public static final class mipmap {
-    public static final int appicon=0x7f0d0000;
-    public static final int appicon_background=0x7f0d0001;
-    public static final int appicon_foreground=0x7f0d0002;
-    public static final int appicon_round=0x7f0d0003;
+    public static final int appicon_round=0x7f0d0000;
+    public static final int appicon_round_background=0x7f0d0001;
+    public static final int appicon_round_foreground=0x7f0d0002;
+    public static final int appicon_round_round=0x7f0d0003;
   }
   public static final class plurals {
     public static final int mtrl_badge_content_description=0x7f0e0000;

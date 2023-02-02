@@ -45,7 +45,7 @@ namespace Robot1
 
             public event Action<string> OnDataArrived;
 
-            private readonly TcpClient _client;
+            private TcpClient _client;
             //Nowe rozwiazanie
 
             IPAddress listeningIP = IPAddress.Parse("192.168.0.2");
@@ -72,7 +72,7 @@ namespace Robot1
             public TcpBackgroundWorker()
             {
                 _connectionStatus = "Connection: Disconnected";
-                _client = new TcpClient();
+                
                 //    _listen = new TcpListener(listeningIP, portFrom);
 
               
@@ -83,9 +83,10 @@ namespace Robot1
                 
             }
 
-            public void RestartListen()
+            public void RestartConnection()
             {
-      //          _listen.Start();
+                _client = new TcpClient();
+                //          _listen.Start();
             }
 
             public async Task Start(string server, int port)
@@ -94,7 +95,7 @@ namespace Robot1
                 // Łączenie się z serwerem
                 //        _listen.Start();
 
-
+                RestartConnection();
 
                 try
                 {
@@ -121,9 +122,7 @@ namespace Robot1
 
                 if (_client.Connected == true)
                 {
-                   // _connectionStatus = "ROBO-1 status: Connected";
-
-
+          
                     Byte[] data = Encoding.ASCII.GetBytes(message);
                     try
                     {
@@ -134,9 +133,6 @@ namespace Robot1
                         RecvMessage = "SEND(): " + e.ToString();
                         this.Stop();
                     }
-                    
-                    
-
 
                     var responseData = new byte[1024];
                     var responseLength = 128; //await _client.GetStream().ReadAsync(responseData, 0, responseData.Length);
@@ -153,16 +149,14 @@ namespace Robot1
 
             public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
-
                 try
                 {
+                    
                     ipEndPoint = new(listeningIP, portFrom);
                     listener = new(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
+                    
                     listener.Bind(ipEndPoint);
                     listener.Listen(0);
-                   
-
 
                 }
                 catch (SocketException e)
@@ -177,7 +171,6 @@ namespace Robot1
 
                 while (!_cancellationTokenSource.IsCancellationRequested)
                 {
-                    // Receive message.
                     var buffer = new byte[192];
                     int received;
                     string response;
@@ -201,22 +194,14 @@ namespace Robot1
                         OnPropertyChanged(nameof(RecvMessage));
 
                         var eom = "<|EOM|>";
-                        if (response.IndexOf(eom) > -1 /* is end of message */)
+                        if (response.IndexOf(eom) > -1 )
                         {
 
-
-
                             //      RecvMessage = "RoboOut: " + response.Replace(eom, "");
-
-
                             //     OnPropertyChanged(nameof(RecvMessage));
-
                             break;
                         }
-                        // Sample output:
-                        //    Socket server received message: "Hi friends 👋!"
-                        //    Socket server sent acknowledgment: "<|ACK|>"
-                        await Task.Delay(100);
+                        await Task.Delay(50);
                     }
                     catch (System.NullReferenceException e)
                     {
@@ -224,14 +209,12 @@ namespace Robot1
                         OnPropertyChanged(nameof(RecvMessage));
                  
                     }
-                    
 
-
-                    
                     
                 }
-               
-
+                handler.Shutdown(SocketShutdown.Both);
+                handler.Close();
+        
                 /* -- tu odkomentowac
                 //_listen.Start();
                 //   RestartListen();
@@ -301,28 +284,24 @@ namespace Robot1
 
             public void Stop()
             {
-                // Żądanie zatrzymania pętli wysyłającej/odbierającej dane
+
                 _cancellationTokenSource.Cancel();
-               
-                if (listener != null)
-                  {
-               //     listener.Disconnect(false);
+
+                if(listener!=null)
+                {
+                    ipEndPoint = null;
                     listener.Close();
+                    
                 }
-                
-               // _listen.Stop();
-           //     if (clientSocket != null)
-          //      {
-           //         clientSocket.Close();
-          //      }
+
+                if (_client != null)
+                {
+                    _client.Close();
+                }
                
-                _client.Close();
 
                 ConnectionStatus = "ROBO-1 status: Disconnected";
-                // OnDataArrived.Invoke(Message());
 
-                //      stream.Close();
-                //      _client.Close();
             }
 
             public string Message()

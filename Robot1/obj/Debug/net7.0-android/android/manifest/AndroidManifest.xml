@@ -12,7 +12,7 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <permission android:name="com.jk.roboapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature" />
   <uses-permission android:name="com.jk.roboapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-  <application android:name="crc64d5a1e40c5325d884.MainApplication" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:icon="@mipmap/appicon" android:label="RoboApp" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
+  <application android:name="crc64d5a1e40c5325d884.MainApplication" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:icon="@mipmap/appicon_round" android:label="RoboApp" android:supportsRtl="true">
     <activity android:name="crc64d5a1e40c5325d884.MainActivity" android:configChanges="density|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:exported="true" android:theme="@style/Maui.SplashTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

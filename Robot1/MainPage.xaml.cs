@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Threading;
 using static Robot1.TcpBackgroundApp;
 using Microsoft.Maui.Graphics;
+using Microsoft.Maui;
 
 namespace Robot1;
 
@@ -17,9 +18,11 @@ public partial class MainPage : ContentPage
     {
         
         InitializeComponent();
-      //  MauiProgram.ConnectionWorker.OnDataArrived += ConnectionWorker_OnArrived;
+        
+        //  MauiProgram.ConnectionWorker.OnDataArrived += ConnectionWorker_OnArrived;
         this.BindingContext = MauiProgram.ConnectionWorker;
-    //    LabelOutput_Robo.SetBinding(Label.TextProperty, MauiProgram.ConnectionWorker.RecvMessage);
+        SteeringGrid.IsEnabled = false;
+        //    LabelOutput_Robo.SetBinding(Label.TextProperty, MauiProgram.ConnectionWorker.RecvMessage);
     }
    
     public async void ChangeConnectionColors(bool connected)
@@ -48,18 +51,18 @@ public partial class MainPage : ContentPage
         ChangeConnectionColors(e.Value);
         if (e.Value == true)
         {
- 
+            
             await MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);  //Komunikacja z robotem
           //    await Task.Delay(500);
             await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890);
-
+            SteeringGrid.IsEnabled = true;
         }
         else
         {
-         
+     
             MauiProgram.ConnectionWorker.Stop();
-            
-      //      LabelOutput.Text = "Connection: Disconnected";
+            SteeringGrid.IsEnabled = false;
+            //      LabelOutput.Text = "Connection: Disconnected";
         }
     }
 
@@ -229,9 +232,17 @@ public partial class MainPage : ContentPage
 
         message = E_Mode.ToString() + ", " + Dir[0].ToString() + ", " + Val[0].ToString() + ", " + Dir[1].ToString() + ", " + Val[1].ToString() + ", " + Dir[2].ToString() + ", " + Val[2].ToString() + ", " + Dir[3].ToString() + ", " + Val[3].ToString() ;
 
+        if(ConnectSwitch.IsToggled==true)
+        {
+            await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
+            LabelOutput.Text = "Sending: " + message;
+        }
+        else
+        {
+            LabelOutput.Text = "You are not connected to ROBO-1! ";
+        }
 
-        await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
-        LabelOutput.Text = "Sending: " + message;
+        
 
     }
 
@@ -245,9 +256,13 @@ public partial class MainPage : ContentPage
         var message = "0, 1, 0, 1, 0, 1, 0, 1, 0\n";
         message = E_Mode.ToString() + ", " + Dir[0].ToString() + ", " + Val[0].ToString() + ", " + Dir[1].ToString() + ", " + Val[1].ToString() + ", " + Dir[2].ToString() + ", " + Val[2].ToString() + ", " + Dir[3].ToString() + ", " + Val[3].ToString() ;
 
-        await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
-
-        LabelOutput.Text = "Stopping: " + i.ToString();
+        if (ConnectSwitch.IsToggled == true)
+        {
+            await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
+            LabelOutput.Text = "Stopping: " + i.ToString();
+        }
+ 
+       
     }
 
     private async void EmergencyButton_Pressed(object sender, EventArgs e)
@@ -255,10 +270,10 @@ public partial class MainPage : ContentPage
         var message = "1, 1, 0, 1, 0, 1, 0, 1, 0";
 
         await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
-        await Task.Delay(500);
+        await Task.Delay(100);
 
         MauiProgram.ConnectionWorker.Stop();
-
+        
         LabelOutput.Text = "Emergency stop! Disconnecting";
        
         ConnectSwitch.IsToggled = false;

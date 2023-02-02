@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
              xmlns:local="clr-namespace:Robot1"
              x:Class="Robot1.MainPage">
 
@@ -16,7 +17,7 @@
 
             <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="FillAndExpand">
 
-                <Image Source="robo.png" Margin="5,5,5,5"   WidthRequest="290" HeightRequest="290" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="robo1.png" Margin="5,5,5,5"   WidthRequest="290" HeightRequest="290" HorizontalOptions="CenterAndExpand"/>
                 <!--.Row="0" -->
 
                 <VerticalStackLayout BackgroundColor="#302e37" Padding="0, 5, 0, 0" >
@@ -70,11 +71,11 @@
 
                         </Grid.RowDefinitions>
                         <!--Lewa kolumna-->
-                    <Button Grid.Column="0" Grid.Row="0"  ImageSource="du_l_arrow.png" BackgroundColor="#302e37"  BorderWidth="0.5" BorderColor="#EBEBEB" ClassId="DU_L_Button" Pressed="Button_Pressed" Released="Button_Released"/>
+                    <Button Grid.Column="0" Grid.Row="0"  ImageSource="du_l_arrow.png" BackgroundColor="#302e37"  BorderWidth="0.5" BorderColor="#EBEBEB" ClassId="DU_L_Button" Pressed="Button_Pressed" Released="Button_Released" />
                         <!--Diagonalnie góra lewo-->
                     <Button Grid.Column="0" Grid.Row="1"  ImageSource="left_arrow.png" BackgroundColor="#302e37"  BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="L_Button" />
                         <!--Lewo-->
-                    <Button Grid.Column="0" Grid.Row="2"  ImageSource="dd_l_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DD_L_Button"/>
+                    <Button Grid.Column="0" Grid.Row="2"  ImageSource="dd_l_arrow.png" BackgroundColor="#302e37" BorderWidth="0.5" BorderColor="#EBEBEB" Pressed="Button_Pressed" Released="Button_Released" ClassId="DD_L_Button" />
                         <!--Diagonalnie dół lewo-->
 
 
@@ -108,7 +109,7 @@
                         <!--Diagonalnie dół prawo-->
 
                         <!--Scalony dolny wiersz | Emergency STOP -->
-                        <Button Margin="0, 5, 0, 0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Text="STOP" BorderWidth="3" BorderColor="#991A1A" BackgroundColor="#D04539" FontFamily="Oxygen" FontAttributes="Bold" TextColor="#FFFFFF" FontSize="32" IsEnabled="True" Pressed="EmergencyButton_Pressed" />
+                    <Button Margin="0, 5, 0, 0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Text="STOP" BorderWidth="3" BorderColor="#991A1A" BackgroundColor="#D04539" FontFamily="Oxygen" FontAttributes="Bold" TextColor="#FFFFFF" FontSize="32" IsEnabled="True" Pressed="EmergencyButton_Pressed"  windows:VisualElement.AccessKey="F" />
                     </Grid>
 
             </VerticalStackLayout>
