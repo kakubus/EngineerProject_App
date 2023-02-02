@@ -43,14 +43,14 @@ public partial class MainPage : ContentPage
     private async void ConnectionSwitch_Toggled(object sender, ToggledEventArgs e)
     {
 
-        PermissionStatus status = await Permissions.RequestAsync<Permissions.NetworkState>();
+        // PermissionStatus status = await Permissions.RequestAsync<Permissions.NetworkState>();
 
         ChangeConnectionColors(e.Value);
         if (e.Value == true)
         {
  
             await MauiProgram.ConnectionWorker.Start("192.168.0.1", 1000);  //Komunikacja z robotem
-              await Task.Delay(500);
+          //    await Task.Delay(500);
             await MauiProgram.ConnectionWorker.ListenMessage("192.168.0.2", 60890);
 
         }
@@ -255,9 +255,12 @@ public partial class MainPage : ContentPage
         var message = "1, 1, 0, 1, 0, 1, 0, 1, 0";
 
         await MauiProgram.ConnectionWorker.SendMessage(message + "\n");
+        await Task.Delay(500);
+
+        MauiProgram.ConnectionWorker.Stop();
 
         LabelOutput.Text = "Emergency stop! Disconnecting";
-        MauiProgram.ConnectionWorker.Stop();
+       
         ConnectSwitch.IsToggled = false;
     }
 

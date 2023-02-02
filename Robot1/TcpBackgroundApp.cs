@@ -92,24 +92,26 @@ namespace Robot1
             {
 
                 // Łączenie się z serwerem
-        //        _listen.Start();
+                //        _listen.Start();
 
-            
-                
+
+
                 try
-                    {
+                {
                     ConnectionStatus = "ROBO-1 status: Connected";
-                  //  _listen.Start();
+                    //  _listen.Start();
 
-                        await _client.ConnectAsync(sendingIP, portTo);
-                       //
-                    }
-                    catch (System.Net.Sockets.SocketException e)
-                    {
-                        RecvMessage = "START(): " + e.ToString();
-           
-                        this.Stop();
-                    }
+                    await _client.ConnectAsync(sendingIP, portTo);
+                    //
+                }
+                catch (System.Net.Sockets.SocketException e)
+                {
+                    RecvMessage = "START(): " + e.ToString();
+                    OnPropertyChanged(nameof(RecvMessage));
+                    this.Stop();
+                }
+  
+
 
             }
 
@@ -151,29 +153,29 @@ namespace Robot1
 
             public async Task ListenMessage(string server, int port) //na ta chwile argumenty funkcji nie wykorzystywane.
             {
-                
 
                 try
                 {
                     ipEndPoint = new(listeningIP, portFrom);
                     listener = new(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                    
+
                     listener.Bind(ipEndPoint);
-                    listener.Listen(50);
-                    
+                    listener.Listen(0);
+                   
 
 
                 }
-                catch(SocketException e)
+                catch (SocketException e)
                 {
                     RecvMessage = e.ToString();
                     OnPropertyChanged(nameof(RecvMessage));
                 }
-                
+
+
                 var handler = await listener.AcceptAsync();
                
 
-                while (true || !_cancellationTokenSource.IsCancellationRequested)
+                while (!_cancellationTokenSource.IsCancellationRequested)
                 {
                     // Receive message.
                     var buffer = new byte[192];
@@ -214,7 +216,7 @@ namespace Robot1
                         // Sample output:
                         //    Socket server received message: "Hi friends 👋!"
                         //    Socket server sent acknowledgment: "<|ACK|>"
-                        await Task.Delay(50);
+                        await Task.Delay(100);
                     }
                     catch (System.NullReferenceException e)
                     {
@@ -228,6 +230,7 @@ namespace Robot1
                     
                     
                 }
+               
 
                 /* -- tu odkomentowac
                 //_listen.Start();
@@ -300,9 +303,10 @@ namespace Robot1
             {
                 // Żądanie zatrzymania pętli wysyłającej/odbierającej dane
                 _cancellationTokenSource.Cancel();
-                  if(listener != null)
+               
+                if (listener != null)
                   {
-             
+               //     listener.Disconnect(false);
                     listener.Close();
                 }
                 
@@ -311,8 +315,10 @@ namespace Robot1
           //      {
            //         clientSocket.Close();
           //      }
-                ConnectionStatus = "ROBO-1 status: Disconnected";
+               
                 _client.Close();
+
+                ConnectionStatus = "ROBO-1 status: Disconnected";
                 // OnDataArrived.Invoke(Message());
 
                 //      stream.Close();

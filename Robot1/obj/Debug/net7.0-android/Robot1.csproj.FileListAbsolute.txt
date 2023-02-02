@@ -2015,3 +2015,4 @@ D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\stamp\_Conv
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\stamp\_GenerateJavaStubs.stamp
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\stamp\_GeneratePackageManagerJava.stamp
 D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\stamp\_ResolveLibraryProjectImports.stamp
+D:\C#\EP_RoboApp\EngineerProject_App\Robot1\obj\Debug\net7.0-android\resizetizer\r\drawable\disconnected_app.png
