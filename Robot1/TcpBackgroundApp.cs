@@ -14,9 +14,12 @@ namespace Robot1
 {
     public class TcpBackgroundApp 
     {
+
+      
+        
         public class TcpBackgroundWorker : INotifyPropertyChanged
         {
-
+            
             public event PropertyChangedEventHandler PropertyChanged;
             public string RecvMessage
             {
@@ -156,7 +159,8 @@ namespace Robot1
                     listener = new(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                     
                     listener.Bind(ipEndPoint);
-                    listener.Listen(0);
+                    listener.Listen();
+                    
 
                 }
                 catch (SocketException e)
@@ -176,7 +180,9 @@ namespace Robot1
                     string response;
                     try
                     {
-                        received = await handler.ReceiveAsync(buffer, SocketFlags.None);
+                       // handler.ReceiveBufferSize = buffer.Length;
+                       // handler.ReceiveTimeout = 100;
+                        received = await handler.ReceiveAsync(buffer, SocketFlags.Partial);
                         response = Encoding.ASCII.GetString(buffer, 0, received);
 
                         string message = response;
@@ -184,24 +190,27 @@ namespace Robot1
 
                         string[] cutMsg = message.Split("\r\n");
                         _RecvMessageMutex.WaitOne();
-
+                      
                         RecvMessage = "RoboOut: " + cutMsg[0];
 
                         _RecvMessageMutex.ReleaseMutex();
 
-
-
+        
                         OnPropertyChanged(nameof(RecvMessage));
 
                         var eom = "<|EOM|>";
                         if (response.IndexOf(eom) > -1 )
                         {
 
-                            //      RecvMessage = "RoboOut: " + response.Replace(eom, "");
+                                  RecvMessage = "RoboOut: .. " + cutMsg[0];
                             //     OnPropertyChanged(nameof(RecvMessage));
                             break;
                         }
                         await Task.Delay(50);
+
+                        string[] parsedParameters = cutMsg[0].Split(", "); // powinno dac 25 elementow
+
+
                     }
                     catch (System.NullReferenceException e)
                     {
@@ -209,12 +218,13 @@ namespace Robot1
                         OnPropertyChanged(nameof(RecvMessage));
                  
                     }
-
                     
+
                 }
                 handler.Shutdown(SocketShutdown.Both);
                 handler.Close();
-        
+                RecvMessage = "Listening stopped";
+                OnPropertyChanged(nameof(RecvMessage));
                 /* -- tu odkomentowac
                 //_listen.Start();
                 //   RestartListen();
@@ -301,7 +311,7 @@ namespace Robot1
                
 
                 ConnectionStatus = "ROBO-1 status: Disconnected";
-
+                OnPropertyChanged(nameof(ConnectionStatus));
             }
 
             public string Message()
