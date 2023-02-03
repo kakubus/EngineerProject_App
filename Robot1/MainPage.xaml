@@ -11,13 +11,37 @@
 
     <ScrollView BackgroundColor="#EBEBEB" >
         <VerticalStackLayout 
-            Spacing="5"
+            Spacing="1"
             
             VerticalOptions="End">
 
             <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="FillAndExpand">
+                <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="Fill" Padding="5, 0, 5, 5">
+                <Grid x:Name="GridVehicleData">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130*"></ColumnDefinition>
+                        <ColumnDefinition Width="150*"></ColumnDefinition>
+                        <ColumnDefinition Width="130*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*" />
+                        <RowDefinition Height="270*" />
+                        <RowDefinition Height="50*" />
+                    </Grid.RowDefinitions>
 
-                <Image Source="robo1.png" Margin="5,5,5,5"   WidthRequest="290" HeightRequest="290" HorizontalOptions="CenterAndExpand"/>
+                        <Label BackgroundColor="#cecece"  Grid.Column="1" Grid.Row="0" Text="vA  Speed [m/s]  vB"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"    />
+                        <Label BackgroundColor="#cecece"  Grid.Column="0" Grid.Row="0" Text="{Binding vA}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="End" x:Name="vA"   />
+                        <Label BackgroundColor="#cecece"  Grid.Column="2" Grid.Row="0" Text="{Binding vB}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" x:Name="vB"  />
+
+                    <Image Source="robo1.png" Grid.Column="1" Grid.Row="1" Margin="5,5,5,5"   WidthRequest="250" HeightRequest="250" HorizontalOptions="Center"/>
+
+                        <Label BackgroundColor="#cecece"  Grid.Column="1" Grid.Row="2" Text="vC  Speed [m/s]  vD"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"   />
+                        <Label BackgroundColor="#cecece"  Grid.Column="0" Grid.Row="2" Text="{Binding vC}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="End" x:Name="vC"  />
+                        <Label BackgroundColor="#cecece"  Grid.Column="2" Grid.Row="2" Text="{Binding vD}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" x:Name="vD"  />
+
+
+                </Grid>
+                </VerticalStackLayout>
                 <!--.Row="0" -->
 
                 <VerticalStackLayout BackgroundColor="#302e37" Padding="0, 5, 0, 0" >
@@ -57,9 +81,9 @@
                         <!-- Siatka przycisków sterowniczych -->
                         <Grid.ColumnDefinitions>
                             <!--3 kolumny-->
-                            <ColumnDefinition Width="120*" />
-                            <ColumnDefinition Width="120*" />
-                            <ColumnDefinition Width="120*" />
+                            <ColumnDefinition Width="110*" />
+                            <ColumnDefinition Width="110*" />
+                            <ColumnDefinition Width="110*" />
 
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>

@@ -9,6 +9,7 @@ using System.IO;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Globalization;
 
 namespace Robot1
 {
@@ -19,14 +20,60 @@ namespace Robot1
         
         public class TcpBackgroundWorker : INotifyPropertyChanged
         {
-            
-            public event PropertyChangedEventHandler PropertyChanged;
+
+
+            float[] RoboParameters = new float[25];
+
+  
+
+
+    public event PropertyChangedEventHandler PropertyChanged;
             public string RecvMessage
             {
                 get { return _recvMessage; }
                 set
                 {
                     _recvMessage = value;
+                    OnPropertyChanged();
+                }
+            }
+
+            public float vA
+            {
+                get { return RoboParameters[0]; }
+                set
+                {
+                    RoboParameters[0] = (float)(((float)((value / 60 ) * 2*(3.14))) * 0.040075);
+                    OnPropertyChanged();
+                }
+            }
+
+            public float vB
+            {
+                get { return RoboParameters[1]; }
+                set
+                {
+                    RoboParameters[1] = (float)(((float)((value / 60) * 2 * (3.14))) * 0.040075);
+                    OnPropertyChanged();
+                }
+            }
+
+            public float vC
+            {
+                get { return RoboParameters[2]; }
+                set
+                {
+                    RoboParameters[2] = (float)(((float)((value / 60) * 2 * (3.14))) * 0.040075);
+                    OnPropertyChanged();
+                }
+            }
+
+            public float vD
+            {
+                get { return RoboParameters[3]; }
+                set
+                {
+                    RoboParameters[3] = (float)(((float)((value / 60) * 2 * (3.14))) * 0.040075);
                     OnPropertyChanged();
                 }
             }
@@ -50,8 +97,8 @@ namespace Robot1
 
             private TcpClient _client;
             //Nowe rozwiazanie
-
             IPAddress listeningIP = IPAddress.Parse("192.168.0.2");
+
             IPAddress sendingIP = IPAddress.Parse("192.168.0.1");
 
             private string _recvMessage; // Zmienna przechowujaca odebrane dane 
@@ -157,20 +204,16 @@ namespace Robot1
                     
                     ipEndPoint = new(listeningIP, portFrom);
                     listener = new(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
                     
                     listener.Bind(ipEndPoint);
-                    listener.Listen();
-                    
+                    listener.Listen(0);
 
-                }
-                catch (SocketException e)
-                {
-                    RecvMessage = e.ToString();
-                    OnPropertyChanged(nameof(RecvMessage));
-                }
-
-
-                var handler = await listener.AcceptAsync();
+                    using (Socket handler = await listener.AcceptAsync())
+                    {
+                        
+                   
+                        //var handler = await listener.AcceptAsync();
                
 
                 while (!_cancellationTokenSource.IsCancellationRequested)
@@ -182,8 +225,9 @@ namespace Robot1
                     {
                        // handler.ReceiveBufferSize = buffer.Length;
                        // handler.ReceiveTimeout = 100;
-                        received = await handler.ReceiveAsync(buffer, SocketFlags.Partial);
-                        response = Encoding.ASCII.GetString(buffer, 0, received);
+                        received = await handler.ReceiveAsync(buffer);
+                   
+                            response = Encoding.ASCII.GetString(buffer, 0, received);
 
                         string message = response;
 
@@ -206,13 +250,49 @@ namespace Robot1
                             //     OnPropertyChanged(nameof(RecvMessage));
                             break;
                         }
-                        await Task.Delay(50);
+                       
+                    
 
-                        string[] parsedParameters = cutMsg[0].Split(", "); // powinno dac 25 elementow
+                            string[] parsedParameters = cutMsg[0].Split(", "); // powinno dac 25 elementow
+
+                            if (parsedParameters.Count() == 25)
+                            {
+                                for (int i = 0; i < 25; i++)
+                                { 
+                                    if ((float.TryParse(parsedParameters[i], out RoboParameters[i])) == true)
+                                    {
+                                            try
+                                            {
+                                                vA = float.Parse(parsedParameters[0], CultureInfo.InvariantCulture.NumberFormat);
+                                                OnPropertyChanged(nameof(vA));
+
+                                                vB = float.Parse(parsedParameters[1], CultureInfo.InvariantCulture.NumberFormat);
+                                                OnPropertyChanged(nameof(vB));
+
+                                                vC = float.Parse(parsedParameters[2], CultureInfo.InvariantCulture.NumberFormat);
+                                                OnPropertyChanged(nameof(vC));
+
+                                                vD = float.Parse(parsedParameters[3], CultureInfo.InvariantCulture.NumberFormat);
+                                                OnPropertyChanged(nameof(vD));
+                                            }
+                                            catch(System.FormatException e)
+                                            {
+                                                
+                                            }
+                                        
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                }
+                                
+                            }
+                            await Task.Delay(50);
 
 
-                    }
-                    catch (System.NullReferenceException e)
+                        }
+                        catch (System.NullReferenceException e)
                     {
                         RecvMessage += " " + e.ToString();
                         OnPropertyChanged(nameof(RecvMessage));
@@ -225,6 +305,15 @@ namespace Robot1
                 handler.Close();
                 RecvMessage = "Listening stopped";
                 OnPropertyChanged(nameof(RecvMessage));
+
+                    }
+
+                }
+                catch (SocketException e)
+                {
+                    RecvMessage = e.ToString();
+                    OnPropertyChanged(nameof(RecvMessage));
+                }
                 /* -- tu odkomentowac
                 //_listen.Start();
                 //   RestartListen();
