@@ -77,11 +77,12 @@ Ponadto aplikacja powinna umożliwiać odczytanie komunikatów nadawanych przez 
 
 Aplikacja została stworzona z wykorzystaniem technologii .NET MAUI. Wykorzystano gotowe elementy służące do obsługi interfejsu. Całość prezentuje się następująco:
 
+
 <p align="center">
-<img width="230" height="400" src="https://user-images.githubusercontent.com/73018121/216727492-fdb255d9-0e5b-4fdb-966c-604e503ad49c.png">
-<img width="230" height="400" src="https://user-images.githubusercontent.com/73018121/216727654-2cee8efc-eba1-4529-9c65-ecfde0946cea.png">
-<img width="230" height="400" src="https://user-images.githubusercontent.com/73018121/216727722-a20071d8-079a-4517-8cf1-997e9e08cdd2.png">
-<img width="230" height="400" src="https://user-images.githubusercontent.com/73018121/216727738-0c9e3c92-eed1-4f97-9a4c-ae9203654a5b.png">
+<img width="230" height="400" src="https://user-images.githubusercontent.com/73018121/216775430-202190ff-7de3-4f59-b99e-a726c67663d2.png">
+<img width="230" height="400" src="https://user-images.githubusercontent.com/73018121/216775440-23898c4e-3ca8-49bd-98c5-96052a19d6b9.png">
+<img width="230" height="400" src="https://user-images.githubusercontent.com/73018121/216775474-e8b5db16-bdf0-4e4f-81ad-48b2649cd388.png">
+<img width="230" height="400" src="https://user-images.githubusercontent.com/73018121/216775501-ceeaec4e-c31c-4819-94c0-fbf822c9a85c.png">
 </p>
 
 #### Widoki aplikacji. 
