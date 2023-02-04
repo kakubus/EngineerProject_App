@@ -22,12 +22,46 @@ namespace Robot1
         {
 
 
-            float[] RoboParameters = new float[25];
-
-  
 
 
-    public event PropertyChangedEventHandler PropertyChanged;
+            double[] RoboParameters = new double[25];
+
+          
+                public double GetStringCompassPosition(string x, string y, string z)
+                {
+                double position;
+                double dbl_x, dbl_y, dbl_z;
+
+                dbl_x = double.Parse(x, CultureInfo.InvariantCulture.NumberFormat);
+                dbl_y = double.Parse(y, CultureInfo.InvariantCulture.NumberFormat);
+                dbl_z = double.Parse(z, CultureInfo.InvariantCulture.NumberFormat);
+
+                    double direction = Math.Atan2(dbl_y, dbl_x);
+                    if(direction < 0)
+                        direction += 2 * Math.PI;
+
+                    if (direction > 2 * Math.PI)
+                    {
+                        direction -= 2 * Math.PI;
+                    }
+                position = direction * 180 / Math.PI;
+             
+                
+                    return Math.Round(position, 2, MidpointRounding.ToZero);
+                }
+            private double _compassPosition;
+            public double compassPosition
+            {
+                get { return _compassPosition; }
+                set
+                {
+                    _compassPosition = value;
+                    OnPropertyChanged();
+                }
+            }
+
+
+            public event PropertyChangedEventHandler PropertyChanged;
             public string RecvMessage
             {
                 get { return _recvMessage; }
@@ -38,45 +72,54 @@ namespace Robot1
                 }
             }
 
-            public float vA
+            public double vA
             {
                 get { return RoboParameters[0]; }
                 set
                 {
-                    RoboParameters[0] = (float)(((float)((value / 60 ) * 2*(3.14))) * 0.040075);
+                    var temp = (double)(((double)((value / 60) * 2 * (Math.PI))) * 0.040075);
+                    RoboParameters[0] = Math.Round(temp, 3, MidpointRounding.ToEven);
                     OnPropertyChanged();
                 }
             }
 
-            public float vB
+            public double vB
             {
                 get { return RoboParameters[1]; }
                 set
                 {
-                    RoboParameters[1] = (float)(((float)((value / 60) * 2 * (3.14))) * 0.040075);
+                    var temp = (double)(((double)((value / 60) * 2 * (Math.PI))) * 0.040075);
+                    RoboParameters[1] = Math.Round(temp, 3, MidpointRounding.ToEven);
                     OnPropertyChanged();
                 }
             }
 
-            public float vC
+            public double vC
             {
                 get { return RoboParameters[2]; }
                 set
                 {
-                    RoboParameters[2] = (float)(((float)((value / 60) * 2 * (3.14))) * 0.040075);
+                    var temp = (double)(((double)((value / 60) * 2 * (Math.PI))) * 0.040075);
+                    RoboParameters[2] = Math.Round(temp, 3, MidpointRounding.ToEven);
                     OnPropertyChanged();
                 }
             }
 
-            public float vD
+            public double vD
             {
                 get { return RoboParameters[3]; }
                 set
                 {
-                    RoboParameters[3] = (float)(((float)((value / 60) * 2 * (3.14))) * 0.040075);
+                    var temp = (double)(((double)((value / 60) * 2 * (Math.PI))) * 0.040075);
+                    RoboParameters[3] = Math.Round(temp, 3, MidpointRounding.ToEven);
                     OnPropertyChanged();
                 }
             }
+
+            
+
+   
+
 
             public string ConnectionStatus
             {
@@ -257,10 +300,36 @@ namespace Robot1
 
                             if (parsedParameters.Count() == 25)
                             {
-                                for (int i = 0; i < 25; i++)
-                                { 
+                                    try
+                                    {
+                                        vA = double.Parse((from rpm in parsedParameters select rpm).ElementAt(0), CultureInfo.InvariantCulture.NumberFormat);
+                                        OnPropertyChanged(nameof(vA));
+                                        vB = double.Parse((from rpm in parsedParameters select rpm).ElementAt(1), CultureInfo.InvariantCulture.NumberFormat);
+                                        OnPropertyChanged(nameof(vB));
+                                        vC = double.Parse((from rpm in parsedParameters select rpm).ElementAt(2), CultureInfo.InvariantCulture.NumberFormat);
+                                        OnPropertyChanged(nameof(vC));
+                                        vD = double.Parse((from rpm in parsedParameters select rpm).ElementAt(3), CultureInfo.InvariantCulture.NumberFormat);
+                                        OnPropertyChanged(nameof(vD));
+
+                                        // Pobieranie wartosci z kompasu
+                                        var cX_temp = (from comp in parsedParameters select comp).ElementAt(4);
+                                        var cY_temp =(from comp in parsedParameters select comp).ElementAt(5);
+                                        var cZ_temp = (from comp in parsedParameters select comp).ElementAt(6);
+
+                                        compassPosition = GetStringCompassPosition(cX_temp, cY_temp, cZ_temp);
+                                        OnPropertyChanged(nameof(compassPosition)); 
+                                    }
+                                    catch(System.FormatException e)
+                                    {
+
+                                    }
+                                    /*
+                                    for (int i = 0; i < 25; i++)
+                                    { 
                                     if ((float.TryParse(parsedParameters[i], out RoboParameters[i])) == true)
                                     {
+                                          //  var linq = from vA, vB, vC, vD in RoboParameters select rpm;
+                                            
                                             try
                                             {
                                                 vA = float.Parse(parsedParameters[0], CultureInfo.InvariantCulture.NumberFormat);
@@ -281,14 +350,11 @@ namespace Robot1
                                             }
                                         
                                     }
-                                    else
-                                    {
 
-                                    }
+                                }*/
+
                                 }
-                                
-                            }
-                            await Task.Delay(50);
+                                await Task.Delay(20);
 
 
                         }
@@ -302,7 +368,7 @@ namespace Robot1
 
                 }
                 handler.Shutdown(SocketShutdown.Both);
-                handler.Close();
+                //handler.Close();  //TESTOWO WYLACZONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 RecvMessage = "Listening stopped";
                 OnPropertyChanged(nameof(RecvMessage));
 

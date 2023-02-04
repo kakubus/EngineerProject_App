@@ -19,28 +19,75 @@
                 <VerticalStackLayout MinimumWidthRequest="200" HorizontalOptions="Fill" Padding="5, 0, 5, 5">
                 <Grid x:Name="GridVehicleData">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130*"></ColumnDefinition>
+                            <ColumnDefinition Width="150*"></ColumnDefinition>
+                            <ColumnDefinition Width="130*"></ColumnDefinition>
                         <ColumnDefinition Width="150*"></ColumnDefinition>
                         <ColumnDefinition Width="130*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50*" />
                         <RowDefinition Height="270*" />
                         <RowDefinition Height="50*" />
                     </Grid.RowDefinitions>
 
-                        <Label BackgroundColor="#cecece"  Grid.Column="1" Grid.Row="0" Text="vA  Speed [m/s]  vB"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"    />
-                        <Label BackgroundColor="#cecece"  Grid.Column="0" Grid.Row="0" Text="{Binding vA}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="End" x:Name="vA"   />
-                        <Label BackgroundColor="#cecece"  Grid.Column="2" Grid.Row="0" Text="{Binding vB}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" x:Name="vB"  />
+                        <Label BackgroundColor="#cecece"  Grid.Column="0" Grid.Row="0" Text="vA [m/s]"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"    />
+                        <Label BackgroundColor="#cecece"  Grid.Column="1" Grid.Row="0" Text="{Binding vA}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="vA"   />
+                        <Label BackgroundColor="#cecece"  Grid.Column="2" Grid.Row="0" Text=""  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"    />
+                        <Label BackgroundColor="#cecece"  Grid.Column="4" Grid.Row="0" Text="vB [m/s]"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"    />
+                        <Label BackgroundColor="#cecece"  Grid.Column="3" Grid.Row="0" Text="{Binding vB}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="vB"  />
 
-                    <Image Source="robo1.png" Grid.Column="1" Grid.Row="1" Margin="5,5,5,5"   WidthRequest="250" HeightRequest="250" HorizontalOptions="Center"/>
+                    <Image Source="robo1.png" Grid.Column="2" Grid.Row="1" Margin="5,5,5,5"   WidthRequest="250" HeightRequest="250" HorizontalOptions="Center"/>
 
-                        <Label BackgroundColor="#cecece"  Grid.Column="1" Grid.Row="2" Text="vC  Speed [m/s]  vD"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"   />
-                        <Label BackgroundColor="#cecece"  Grid.Column="0" Grid.Row="2" Text="{Binding vC}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="End" x:Name="vC"  />
-                        <Label BackgroundColor="#cecece"  Grid.Column="2" Grid.Row="2" Text="{Binding vD}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" x:Name="vD"  />
+                        <Label BackgroundColor="#cecece"  Grid.Column="0" Grid.Row="2" Text="vC [m/s]"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"    />
+                        <Label BackgroundColor="#cecece"  Grid.Column="1" Grid.Row="2" Text="{Binding vC}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="vC"   />
+                        <Label BackgroundColor="#cecece"  Grid.Column="2" Grid.Row="2" Text=""  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"    />
+                        <Label BackgroundColor="#cecece"  Grid.Column="4" Grid.Row="2" Text="vD [m/s]"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"    />
+                        <Label BackgroundColor="#cecece"  Grid.Column="3" Grid.Row="2" Text="{Binding vD}"  FontFamily="Consolas" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="vD"  />
+
+                        <VerticalStackLayout Grid.Column="0" Grid.Row="1" MinimumWidthRequest="200" HorizontalOptions="Fill" VerticalOptions="Center" Padding="5, 5, 5, 5">
+                            <Label  Text="Compass"  FontFamily="Calibri" FontSize="16" TextColor="DimGray" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Padding="0,0,0,5" MaxLines="5" FontAttributes="Bold"   />
+
+                            <!--Compass -->
+
+                            <Grid x:Name="CompassGrid" MaximumHeightRequest="150" MaximumWidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition  />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Label  HorizontalOptions="Start" VerticalOptions="Start" Grid.Row="0" Grid.Column="0"  Text="NW"  FontFamily="Calibri" FontSize="16" TextColor="DarkGray" FontAttributes="Bold"/>
+                                <Label  HorizontalOptions="Center" VerticalOptions="Start" Grid.Row="0" Grid.Column="1"  Text="N"  FontFamily="Calibri" FontSize="18" TextColor="Red" FontAttributes="Bold"/>
+                                <Label  HorizontalOptions="End" VerticalOptions="Start" Grid.Row="0" Grid.Column="2"  Text="NE"  FontFamily="Calibri" FontSize="16" TextColor="DarkGray" FontAttributes="Bold"/>
+
+                                <Label  HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="1" Grid.Column="0"  Text="W"  FontFamily="Calibri" FontSize="18" TextColor="Red" FontAttributes="Bold"/>
+                                <Image Source="compass.png" ZIndex="1" Grid.Row="1" Grid.Column="1" Margin="2,2,2,2" Rotation="{Binding compassPosition}"  WidthRequest="44" HeightRequest="44" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label  HorizontalOptions="End" VerticalOptions="Center" Grid.Row="1" Grid.Column="2"  Text="E"  FontFamily="Calibri" FontSize="18" TextColor="Red" FontAttributes="Bold"/>
+
+                                <Label  HorizontalOptions="Start" VerticalOptions="End" Grid.Row="2" Grid.Column="0"  Text="SW"  FontFamily="Calibri" FontSize="16" TextColor="DarkGray" FontAttributes="Bold"/>
+                                <Label  HorizontalOptions="Center" VerticalOptions="End" Grid.Row="2" Grid.Column="1"  Text="S"  FontFamily="Calibri" FontSize="18" TextColor="Red" FontAttributes="Bold"/>
+                                <Label  HorizontalOptions="End" VerticalOptions="End" Grid.Row="2" Grid.Column="2"  Text="SE"  FontFamily="Calibri" FontSize="16" TextColor="DarkGray" FontAttributes="Bold"/>
+
+                                
+                            </Grid>
+
+                            <HorizontalStackLayout  VerticalOptions="Start" HorizontalOptions="StartAndExpand" >
+                                <Label  Text="{Binding compassPosition}"  FontFamily="Consolas" FontSize="13" TextColor="Black" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" Padding="0,5,0,0" MaxLines="5"  />
+                                <Label  Text="°"  FontFamily="Consolas" FontSize="13" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
+                            </HorizontalStackLayout>
 
 
-                </Grid>
+
+                        </VerticalStackLayout>
+
+                    </Grid>
                 </VerticalStackLayout>
                 <!--.Row="0" -->
 

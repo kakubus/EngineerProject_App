@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Oxygen-Bold.ttf" />
+	  <None Remove="Resources\Images\compass.png" />
 	  <None Remove="Resources\Images\dd_l_arrow.png" />
 	  <None Remove="Resources\Images\dd_r_arrow.png" />
 	  <None Remove="Resources\Images\down_arrow.png" />
