@@ -20,6 +20,7 @@ public static class MauiProgram
                 fonts.AddFont("Oxygen-Bold.ttf", "Oxygen");
             });
 
+
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
