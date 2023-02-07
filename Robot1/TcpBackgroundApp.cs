@@ -21,13 +21,10 @@ namespace Robot1
         public class TcpBackgroundWorker : INotifyPropertyChanged
         {
 
-
-
-
             double[] RoboParameters = new double[25];
 
           
-                public double GetStringCompassPosition(string x, string y, string z)
+                public double GetCompassPosition(string x, string y, string z) 
                 {
                 double position;
                 double dbl_x, dbl_y, dbl_z;
@@ -72,7 +69,7 @@ namespace Robot1
                 }
             }
 
-            public double vA
+            public double vA // predkosc liniowa kola A
             {
                 get { return RoboParameters[0]; }
                 set
@@ -116,11 +113,6 @@ namespace Robot1
                 }
             }
 
-            
-
-   
-
-
             public string ConnectionStatus
             {
                 get { return _connectionStatus; }
@@ -150,7 +142,7 @@ namespace Robot1
             private TcpListener _listen;
             private int portTo = 1000;  //TEMP
             private int portFrom = 60890; // TEMP
-                                          //    private string server1 = "192.168.0.2"; // TEMP 
+                                          
             IPEndPoint ipEndPoint;
             Socket listener;
 
@@ -165,7 +157,6 @@ namespace Robot1
             public TcpBackgroundWorker()
             {
                 _connectionStatus = "Connection: Disconnected";
-                
                 //    _listen = new TcpListener(listeningIP, portFrom);
 
               
@@ -256,7 +247,7 @@ namespace Robot1
                     {
                         
                    
-                        //var handler = await listener.AcceptAsync();
+                   
                
 
                 while (!_cancellationTokenSource.IsCancellationRequested)
@@ -266,8 +257,6 @@ namespace Robot1
                     string response;
                     try
                     {
-                       // handler.ReceiveBufferSize = buffer.Length;
-                       // handler.ReceiveTimeout = 100;
                         received = await handler.ReceiveAsync(buffer);
                    
                             response = Encoding.ASCII.GetString(buffer, 0, received);
@@ -296,7 +285,7 @@ namespace Robot1
                        
                     
 
-                            string[] parsedParameters = cutMsg[0].Split(", "); // powinno dac 25 elementow
+                            string[] parsedParameters = cutMsg[0].Split(", "); // powinno dac 25 elementow (tyle wysyla robot)
 
                             if (parsedParameters.Count() == 25)
                             {
@@ -316,14 +305,14 @@ namespace Robot1
                                         var cY_temp =(from comp in parsedParameters select comp).ElementAt(5);
                                         var cZ_temp = (from comp in parsedParameters select comp).ElementAt(6);
 
-                                        compassPosition = GetStringCompassPosition(cX_temp, cY_temp, cZ_temp);
+                                        compassPosition = GetCompassPosition(cX_temp, cY_temp, cZ_temp);
                                         OnPropertyChanged(nameof(compassPosition)); 
                                     }
                                     catch(System.FormatException e)
                                     {
 
                                     }
-                                    /*
+                                    /* Aktualnie nie uzywane. Przez LINQ działa stabilniej.
                                     for (int i = 0; i < 25; i++)
                                     { 
                                     if ((float.TryParse(parsedParameters[i], out RoboParameters[i])) == true)
@@ -368,7 +357,7 @@ namespace Robot1
 
                 }
                 handler.Shutdown(SocketShutdown.Both);
-                //handler.Close();  //TESTOWO WYLACZONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                //handler.Close();  //TESTOWO ZAKOMENTOWANE!!
                 RecvMessage = "Listening stopped";
                 OnPropertyChanged(nameof(RecvMessage));
 
@@ -380,69 +369,7 @@ namespace Robot1
                     RecvMessage = e.ToString();
                     OnPropertyChanged(nameof(RecvMessage));
                 }
-                /* -- tu odkomentowac
-                //_listen.Start();
-                //   RestartListen();
-                try
-                {
-
-                   // clientSocket = _listen.AcceptSocket();
-                    clientSocket = await _listen.AcceptSocketAsync();
-                }
-                catch (SocketException e)
-                {
-                    clientSocket.Close();
-                    stream.Close();
-                    _RecvMessageMutex.WaitOne();
-                    _recvMessage = e.ToString();
-                    _RecvMessageMutex.ReleaseMutex();
-                    _listen.Stop();
-                    return;
-                }
-                bool dataAv = false;
-                stream = new NetworkStream(clientSocket);
-                
-                await Task.Delay(200);
-                dataAv = stream.DataAvailable;
-                
-                while (true || !_cancellationTokenSource.IsCancellationRequested)
-                    {
-
-                    
-                        byte[] buffer = new byte[192];
-                        int bytesReceived = 0;
-                    
-                        try
-                        {
-                            while (((bytesReceived = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0))
-                            {
-                                string message = Encoding.ASCII.GetString(buffer, 0, bytesReceived);
-                                string[] cutMsg = message.Split("\r\n");
-                                _RecvMessageMutex.WaitOne();
-
-                                RecvMessage = "RoboOut: "+cutMsg[0];
-                            
-                            _RecvMessageMutex.ReleaseMutex();
-                            OnPropertyChanged(nameof(RecvMessage));
-                          //  OnDataArrived?.Invoke(RecvMessage);
-
-                            }
-                        }
-                        catch (System.IO.IOException e)
-                        {
-                            clientSocket.Close();
-                            stream.Close();
-                            _listen.Stop();
-                            return;
-                        }
-                        await Task.Delay(50);
-                        
-                    }
-                
-                
-               // OnDataArrived.Invoke(Message());
-                //  _listen.Stop();
-                */
+             
 
             }
 
